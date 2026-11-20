@@ -1,0 +1,89 @@
+2026-11-20T15:05:30Z [linkerd] cluster
+Creating cluster "bench" ...
+ • Ensuring node image (kindest/node:v1.36.4) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.36.4) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-bench"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-bench
+
+Have a nice day! 👋
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker2", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-control-plane", loading...
+2026-11-20T15:05:56Z [linkerd] install
+Rendering Linkerd CRDs...
+Next, run `linkerd install | kubectl apply -f -` to install the control plane.
+
+2026-11-20T15:07:00Z [linkerd] app
+namespace/bench annotated
+Waiting for deployment "client" rollout to finish: 0 of 1 updated replicas are available...
+deployment "client" successfully rolled out
+Waiting for deployment "hop-a" rollout to finish: 0 of 1 updated replicas are available...
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+deployment "hop-c" successfully rolled out
+2026-11-20T15:07:06Z [linkerd] policy
+server.policy.linkerd.io/hop-b created
+httproute.gateway.networking.k8s.io/hop-b-get created
+httproute.gateway.networking.k8s.io/hop-b-probe created
+meshtlsauthentication.policy.linkerd.io/hop-a created
+authorizationpolicy.policy.linkerd.io/hop-b-get created
+networkauthentication.policy.linkerd.io/probes created
+authorizationpolicy.policy.linkerd.io/hop-b-probe created
+config=linkerd
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+HTTP/1.1 403 Forbidden
+{"ts":1795187242.306209,"level":"warn","r":1,"file":"http_client.go","line":1155,"msg":"Non ok http code","code":403,"status":"HTTP/1.1 403","thread":0,"run":0}
+{"ts":1795187242.306288,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status 403"}
+command terminated with exit code 1
+2026-11-20T15:07:22Z [linkerd] upgrade-under-load
+1795187242.448692732 load-start
+1795187272.452431551 upgrade-start
+1795187286.088792450 upgrade-mesh-done
+1795187286.092185396 app-rollout-start
+1795187292.274099311 app-rollout-done
+1795187292.276227239 actions-done
+1795187542.591176560 load-end
+requests=60000 failed=3600 max_ok_latency_ms=35.8 actions_finished_before_load_end=True
+deployment.apps/client restarted
+Waiting for deployment "client" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "client" rollout to finish: 1 old replicas are pending termination...
+deployment "client" successfully rolled out
+2026-11-20T15:12:27Z [linkerd] latency
+pilot-linkerd rep1 qps100: p50=8.297ms p99=16.204ms actual=100 codes={"200":992}
+pilot-linkerd rep1 qps500: p50=7.786ms p99=13.049ms actual=499 codes={"200":4992}
+pilot-linkerd rep1 qps1000: p50=7.195ms p99=11.304ms actual=999 codes={"200":10000}
+pilot-linkerd max rep1: qps=2112 codes={"200":63373}
+pilot-linkerd max rep2: qps=2099 codes={"200":62972}
+pilot-linkerd max rep3: qps=2104 codes={"200":63128}
+2026-11-20T15:15:19Z [linkerd] restart-under-load
+1795187719.595724344 load-start
+1795187749.599592535 restart-start
+1795187756.453723244 restart-mesh-done
+1795187756.462632361 actions-done
+1795187919.730213987 load-end
+requests=40000 failed=0 max_ok_latency_ms=38.7 actions_finished_before_load_end=True
+2026-11-20T15:18:40Z [linkerd] startup
+pilot-linkerd round 0: median 5.01s max 5.40s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+pilot-linkerd round 1: median 5.36s max 5.91s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+pilot-linkerd round 2: median 5.21s max 6.84s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+pilot-linkerd round 3: median 4.93s max 5.21s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+pilot-linkerd round 4: median 5.12s max 6.01s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+pilot-linkerd round 5: median 4.86s max 6.01s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+2026-11-20T15:20:39Z [linkerd] done

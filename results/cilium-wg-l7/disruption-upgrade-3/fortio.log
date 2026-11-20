@@ -1,0 +1,41 @@
+Fortio 1.77.0 running at 200 queries per second, 4 procs, for 5m0s: http://hop-a:8080/
+{"ts":1795213992.464801,"level":"err","r":26,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52494->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":6,"run":0}
+{"ts":1795213992.467395,"level":"err","r":22,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52516->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":2,"run":0}
+{"ts":1795213992.468212,"level":"err","r":23,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52470->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":3,"run":0}
+{"ts":1795213992.468290,"level":"err","r":20,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52460->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":0,"run":0}
+{"ts":1795213992.468336,"level":"err","r":25,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52520->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":5,"run":0}
+{"ts":1795213992.468346,"level":"err","r":27,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52502->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":7,"run":0}
+{"ts":1795213992.468359,"level":"err","r":21,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52488->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":1,"run":0}
+{"ts":1795213992.468378,"level":"err","r":24,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52482->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":4,"run":0}
+{"ts":1795213995.469212,"level":"err","r":26,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52534->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":6,"run":0}
+{"ts":1795213995.470455,"level":"err","r":22,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52522->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":2,"run":0}
+{"ts":1795213995.476205,"level":"err","r":20,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52582->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":0,"run":0}
+{"ts":1795213995.476468,"level":"err","r":23,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52574->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":3,"run":0}
+{"ts":1795213995.476527,"level":"err","r":24,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52596->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":4,"run":0}
+{"ts":1795213995.476572,"level":"err","r":25,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52564->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":5,"run":0}
+{"ts":1795213995.476593,"level":"err","r":21,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52548->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":1,"run":0}
+{"ts":1795213995.476634,"level":"err","r":27,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.2.56:52590->10.96.210.141:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.210.141","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":7,"run":0}
+Aggregated Function Time : count 60000 avg 0.0070754579 +/- 0.0785 min 0.001905958 max 6.012424522 sum 424.527476
+# target 50% 0.00485138
+# target 75% 0.00623795
+# target 90% 0.00876973
+# target 99% 0.0206772
+# target 99.9% 0.045
+Error cases : count 16 avg 4.5083324 +/- 1.503 min 3.003846082 max 6.012424522 sum 72.1333184
+# Socket and IP used for each connection:
+[0]   4 socket used, resolved to 10.96.210.141:8080, connection timing : count 4 avg 0.0016786375 +/- 0.001499 min 0.000731681 max 0.004273911 sum 0.00671455
+[1]   4 socket used, resolved to 10.96.210.141:8080, connection timing : count 4 avg 0.001629933 +/- 0.00128 min 0.000769832 max 0.003841105 sum 0.006519732
+[2]   4 socket used, resolved to 10.96.210.141:8080, connection timing : count 4 avg 0.000800243 +/- 0.0002767 min 0.000531553 max 0.001188503 sum 0.003200972
+[3]   4 socket used, resolved to 10.96.210.141:8080, connection timing : count 4 avg 0.00125037 +/- 0.001184 min 0.000372315 max 0.003285913 sum 0.00500148
+[4]   4 socket used, resolved to 10.96.210.141:8080, connection timing : count 4 avg 0.000844597 +/- 0.0002708 min 0.000592948 max 0.001259862 sum 0.003378388
+[5]   4 socket used, resolved to 10.96.210.141:8080, connection timing : count 4 avg 0.0013969165 +/- 0.001396 min 0.000413984 max 0.003806164 sum 0.005587666
+[6]   4 socket used, resolved to 10.96.210.141:8080, connection timing : count 4 avg 0.0006666645 +/- 0.0002216 min 0.000374401 max 0.00098497 sum 0.002666658
+[7]   4 socket used, resolved to 10.96.210.141:8080, connection timing : count 4 avg 0.001656843 +/- 0.0008999 min 0.000637223 max 0.002876489 sum 0.006627372
+Sockets used: 32 (for perfect keepalive, would be 8)
+Uniform: false, Jitter: false, Catchup allowed: true
+IP addresses distribution:
+10.96.210.141:8080: 32
+Code  -1 : 16 (0.0 %)
+Code 200 : 59984 (100.0 %)
+All done 60000 calls (plus 8 warmup) 7.075 ms avg, 200.0 qps
+Successfully wrote 8077 bytes of Json data to stdout

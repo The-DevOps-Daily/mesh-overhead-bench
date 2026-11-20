@@ -1,0 +1,128 @@
+2026-11-20T14:47:31Z [istio-ambient] cluster
+Creating cluster "bench" ...
+ • Ensuring node image (kindest/node:v1.36.4) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.36.4) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-bench"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-bench
+
+Have a question, bug, or feature request? Let us know! https://kind.sigs.k8s.io/#community 🙂
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-control-plane", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker2", loading...
+2026-11-20T14:47:54Z [istio-ambient] install
+        |\          
+        | \         
+        |  \        
+        |   \       
+      /||    \      
+     / ||     \     
+    /  ||      \    
+   /   ||       \   
+  /    ||        \  
+ /     ||         \ 
+/______||__________\
+____________________
+  \__       _____/  
+     \_____/        
+
+
+- Processing resources for Istio core.
+✔ Istio core installed ⛵️
+- Processing resources for CNI, Istiod.
+- Processing resources for CNI, Istiod. Waiting for DaemonSet/istio-system/istio-cni-node
+- Processing resources for CNI, Istiod. Waiting for DaemonSet/istio-system/istio-cni-node, Deploy...
+✔ Istiod installed 🧠
+✔ CNI installed 🪢
+- Processing resources for Ztunnel.
+- Processing resources for Ztunnel. Waiting for DaemonSet/istio-system/ztunnel
+✔ Ztunnel installed 🔒
+- Pruning removed resources
+✔ Installation completeThe ambient profile has been installed successfully, enjoy Istio without sidecars!
+2026-11-20T14:48:22Z [istio-ambient] app
+namespace/bench labeled
+Waiting for deployment "client" rollout to finish: 0 of 1 updated replicas are available...
+deployment "client" successfully rolled out
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+deployment "hop-c" successfully rolled out
+2026-11-20T14:48:25Z [istio-ambient] policy
+gateway.gateway.networking.k8s.io/waypoint created
+authorizationpolicy.security.istio.io/hop-b-l7 created
+Waiting for deployment "waypoint" rollout to finish: 0 out of 1 new replicas have been updated...
+Waiting for deployment "waypoint" rollout to finish: 0 of 1 updated replicas are available...
+Waiting for deployment "waypoint" rollout to finish: 0 of 1 updated replicas are available...
+deployment "waypoint" successfully rolled out
+service/hop-b labeled
+config=istio-ambient-waypoint
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795186126.328287,"level":"info","r":1,"file":"scli.go","line":135,"msg":"Starting","command":"Φορτίο","version":"1.77.0 h1:SktMRWj8Xlfv2LqyryqnSEUAFjHrEZuJt8aqKNH0rII= go1.26.11 amd64 linux","gomaxprocs":4}
+{"ts":1795186126.335702,"level":"warn","r":1,"file":"http_client.go","line":1155,"msg":"Non ok http code","code":403,"status":"HTTP/1.1 403","thread":0,"run":0}
+HTTP/1.1 403 Forbidden
+content-length: 19
+2026-11-20T14:48:46Z [istio-ambient] upgrade-under-load
+1795186126.471603468 load-start
+1795186156.475477805 upgrade-start
+1795186208.730231494 upgrade-mesh-done
+1795186208.732159314 actions-done
+1795186426.635535137 load-end
+requests=60000 failed=0 max_ok_latency_ms=33.7 actions_finished_before_load_end=True
+2026-11-20T14:53:47Z [istio-ambient] latency
+pilot-istio-ambient-waypoint rep1 qps100: p50=6.665ms p99=9.952ms actual=100 codes={"200":992}
+pilot-istio-ambient-waypoint rep1 qps500: p50=6.433ms p99=10.565ms actual=500 codes={"200":4992}
+pilot-istio-ambient-waypoint rep1 qps1000: p50=5.884ms p99=10.571ms actual=999 codes={"200":10000}
+pilot-istio-ambient-waypoint max rep1: qps=2516 codes={"200":75500}
+pilot-istio-ambient-waypoint max rep2: qps=2468 codes={"200":74044}
+pilot-istio-ambient-waypoint max rep3: qps=2477 codes={"200":74326}
+2026-11-20T14:56:40Z [istio-ambient] restart-under-load
+1795186600.342411673 load-start
+1795186630.346590943 restart-start
+1795186690.520536543 restart-mesh-done
+1795186690.525438977 actions-done
+1795186800.473961828 load-end
+requests=40000 failed=0 max_ok_latency_ms=24.6 actions_finished_before_load_end=True
+2026-11-20T15:00:01Z [istio-ambient] startup
+pilot-istio-ambient-waypoint round 0: median 1.93s max 2.02s pods=10 containers=['hop']
+pilot-istio-ambient-waypoint round 1: median 1.93s max 1.99s pods=10 containers=['hop']
+pilot-istio-ambient-waypoint round 2: median 1.87s max 2.88s pods=10 containers=['hop']
+pilot-istio-ambient-waypoint round 3: median 2.08s max 2.21s pods=10 containers=['hop']
+pilot-istio-ambient-waypoint round 4: median 1.90s max 2.75s pods=10 containers=['hop']
+pilot-istio-ambient-waypoint round 5: median 1.97s max 3.01s pods=10 containers=['hop']
+2026-11-20T15:01:40Z [istio-ambient] policy-l4
+service/hop-b unlabeled
+authorizationpolicy.security.istio.io "hop-b-l7" deleted from bench namespace
+gateway.gateway.networking.k8s.io "waypoint" deleted from bench namespace
+authorizationpolicy.security.istio.io/hop-b created
+config=istio-ambient-l4
+--- client -> hop-a (chain, expect 200)
+HTTP/1.1 200 OK
+hop-a ok
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795186915.863665,"level":"info","r":1,"file":"scli.go","line":135,"msg":"Starting","command":"Φορτίο","version":"1.77.0 h1:SktMRWj8Xlfv2LqyryqnSEUAFjHrEZuJt8aqKNH0rII= go1.26.11 amd64 linux","gomaxprocs":4}
+{"ts":1795186915.867774,"level":"err","r":1,"file":"http_client.go","line":1134,"msg":"Read error","err":"read tcp 10.244.2.4:60660->10.96.27.233:8080: read: connection reset by peer","size":0,"header_len":0,"dest":{"IP":"10.96.27.233","Port":8080,"Zone":""},"url":"http://hop-b:8080/","thread":0,"run":0}
+{"ts":1795186915.867822,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status -1"}
+command terminated with exit code 1
+2026-11-20T15:01:55Z [istio-ambient] latency-l4
+pilot-istio-ambient-l4 rep1 qps100: p50=4.135ms p99=9.013ms actual=100 codes={"200":992}
+pilot-istio-ambient-l4 rep1 qps500: p50=3.892ms p99=6.938ms actual=500 codes={"200":4992}
+pilot-istio-ambient-l4 rep1 qps1000: p50=3.714ms p99=6.72ms actual=999 codes={"200":10000}
+pilot-istio-ambient-l4 max rep1: qps=3829 codes={"200":114886}
+pilot-istio-ambient-l4 max rep2: qps=3824 codes={"200":114726}
+pilot-istio-ambient-l4 max rep3: qps=3899 codes={"200":116995}
+2026-11-20T15:04:48Z [istio-ambient] done

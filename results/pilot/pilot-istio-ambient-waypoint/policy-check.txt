@@ -1,0 +1,9 @@
+config=istio-ambient-waypoint
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795186126.328287,"level":"info","r":1,"file":"scli.go","line":135,"msg":"Starting","command":"Φορτίο","version":"1.77.0 h1:SktMRWj8Xlfv2LqyryqnSEUAFjHrEZuJt8aqKNH0rII= go1.26.11 amd64 linux","gomaxprocs":4}
+{"ts":1795186126.335702,"level":"warn","r":1,"file":"http_client.go","line":1155,"msg":"Non ok http code","code":403,"status":"HTTP/1.1 403","thread":0,"run":0}
+HTTP/1.1 403 Forbidden
+content-length: 19

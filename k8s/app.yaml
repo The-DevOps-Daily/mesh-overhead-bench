@@ -1,0 +1,122 @@
+# The chain: client (fortio, w1) -> hop-a (w2) -> hop-b (w1) -> hop-c (w2).
+# Every hop crosses a node, so node-level proxies sit on both ends of each call.
+apiVersion: v1
+kind: ServiceAccount
+metadata: {name: client, namespace: bench}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata: {name: hop-a, namespace: bench}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata: {name: hop-b, namespace: bench}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata: {name: hop-c, namespace: bench}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: client, namespace: bench}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: client}}
+  template:
+    metadata: {labels: {app: client}}
+    spec:
+      serviceAccountName: client
+      nodeSelector: {bench/node: w1}
+      containers:
+      - name: fortio
+        image: fortio/fortio:FORTIO_VERSION
+        imagePullPolicy: IfNotPresent
+        args: ["server"]
+        resources: {requests: {cpu: 100m, memory: 64Mi}}
+---
+apiVersion: v1
+kind: Service
+metadata: {name: hop-a, namespace: bench}
+spec:
+  selector: {app: hop-a}
+  ports: [{name: http, port: 8080, targetPort: 8080, appProtocol: http}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: hop-b, namespace: bench}
+spec:
+  selector: {app: hop-b}
+  ports: [{name: http, port: 8080, targetPort: 8080, appProtocol: http}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: hop-c, namespace: bench}
+spec:
+  selector: {app: hop-c}
+  ports: [{name: http, port: 8080, targetPort: 8080, appProtocol: http}]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: hop-a, namespace: bench}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: hop-a}}
+  template:
+    metadata: {labels: {app: hop-a}}
+    spec:
+      serviceAccountName: hop-a
+      nodeSelector: {bench/node: w2}
+      containers:
+      - name: hop
+        image: hop:v1
+        imagePullPolicy: IfNotPresent
+        env:
+        - {name: NAME, value: hop-a}
+        - {name: NEXT, value: "http://hop-b:8080/"}
+        ports: [{containerPort: 8080}]
+        readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 1}
+        resources: {requests: {cpu: 50m, memory: 32Mi}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: hop-b, namespace: bench}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: hop-b}}
+  template:
+    metadata: {labels: {app: hop-b}}
+    spec:
+      serviceAccountName: hop-b
+      nodeSelector: {bench/node: w1}
+      containers:
+      - name: hop
+        image: hop:v1
+        imagePullPolicy: IfNotPresent
+        env:
+        - {name: NAME, value: hop-b}
+        - {name: NEXT, value: "http://hop-c:8080/"}
+        ports: [{containerPort: 8080}]
+        readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 1}
+        resources: {requests: {cpu: 50m, memory: 32Mi}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: hop-c, namespace: bench}
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: hop-c}}
+  template:
+    metadata: {labels: {app: hop-c}}
+    spec:
+      serviceAccountName: hop-c
+      nodeSelector: {bench/node: w2}
+      containers:
+      - name: hop
+        image: hop:v1
+        imagePullPolicy: IfNotPresent
+        env:
+        - {name: NAME, value: hop-c}
+        - {name: NEXT, value: ""}
+        ports: [{containerPort: 8080}]
+        readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 1}
+        resources: {requests: {cpu: 50m, memory: 32Mi}}

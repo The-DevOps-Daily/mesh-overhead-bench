@@ -1,0 +1,254 @@
+[
+  {
+    "id": "52dd057259a9934602b3144504a6dcf772e0a55ce3f99efe17466c36d5703228",
+    "ns": "bench",
+    "pod": "client-58b9b8b99-rczk5",
+    "container": "fortio",
+    "node": "bench-worker"
+  },
+  {
+    "id": "f2f232f9d80fb09ee51bd7732dbdfdad181d043b40b52028b061f40a0076763d",
+    "ns": "bench",
+    "pod": "client-58b9b8b99-rczk5",
+    "container": "linkerd-init",
+    "node": "bench-worker"
+  },
+  {
+    "id": "dfd21ca9c2bb538afd28b201c9c5b34821df592bdf4243058b38d03427c67489",
+    "ns": "bench",
+    "pod": "client-58b9b8b99-rczk5",
+    "container": "linkerd-proxy",
+    "node": "bench-worker"
+  },
+  {
+    "id": "0e3841d2fa40d2e3b34a4f85b74253e526fbd8415ddad81bdfbcf0c99b59150b",
+    "ns": "bench",
+    "pod": "hop-a-5c449c69b8-8bgh6",
+    "container": "hop",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "f1ad9c7cb5e57bc2f5c26ee99b0ec048efa4f11f262935dea86cefea8dcdc391",
+    "ns": "bench",
+    "pod": "hop-a-5c449c69b8-8bgh6",
+    "container": "linkerd-init",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "a097bfa9d497217a098b6069b772bd4ab8cac501385420c4b4939caafaf6af5c",
+    "ns": "bench",
+    "pod": "hop-a-5c449c69b8-8bgh6",
+    "container": "linkerd-proxy",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "5ff35a51b93bca208f01a50cf5be5eaf5007aec809ad761e721c147cf9e0dc42",
+    "ns": "bench",
+    "pod": "hop-b-84b5cbc84-82bgm",
+    "container": "hop",
+    "node": "bench-worker"
+  },
+  {
+    "id": "89a025cf315cfbb5450bd08f0ed1261c4936c0d07be5057a1f2fb57a40c7ecb2",
+    "ns": "bench",
+    "pod": "hop-b-84b5cbc84-82bgm",
+    "container": "linkerd-init",
+    "node": "bench-worker"
+  },
+  {
+    "id": "901cbb6eb28caab5712eecee1c61a7bc4ae4b7102e12743e4ee1036e52faf562",
+    "ns": "bench",
+    "pod": "hop-b-84b5cbc84-82bgm",
+    "container": "linkerd-proxy",
+    "node": "bench-worker"
+  },
+  {
+    "id": "8a10b29f7e0b965e6cfb07cdf9409de9c8acbc208ec65a8d50ce7bea3edfa3e0",
+    "ns": "bench",
+    "pod": "hop-c-6c7c768567-qrj4b",
+    "container": "hop",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "3cd294dfdbc986b7c39f603125e8279064200e7fdd03bb63cee86bb47b31b782",
+    "ns": "bench",
+    "pod": "hop-c-6c7c768567-qrj4b",
+    "container": "linkerd-init",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "7a5d7a9a724db5b950979f7c4eb0cc3d573d3efe6fa0908a70d1d81a5c86f74a",
+    "ns": "bench",
+    "pod": "hop-c-6c7c768567-qrj4b",
+    "container": "linkerd-proxy",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "fd3a341ebfb88fe53a499f135aefe3485247a3cd10e5afd40d9472c0cfe9a0cc",
+    "ns": "kube-system",
+    "pod": "coredns-589f44dc88-mttlv",
+    "container": "coredns",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "5839f21d7c9e88b578168da43fb14b835d150196d70632ab2ccf13a1fc887dd1",
+    "ns": "kube-system",
+    "pod": "coredns-589f44dc88-nsvdf",
+    "container": "coredns",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "4bccf0534d51dd1874e262ec598fd35ebde0702e696dadc4411a969574753047",
+    "ns": "kube-system",
+    "pod": "etcd-bench-control-plane",
+    "container": "etcd",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "8c12d1f46f42b8bc21f82a8cbc11493b041e3e6b9459f138682c69048d25d945",
+    "ns": "kube-system",
+    "pod": "kindnet-lc6vp",
+    "container": "kindnet-cni",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "e51401de1bf9d15f5687b2cf70c9225f9992f291d4a39946c00f1afeea453ebb",
+    "ns": "kube-system",
+    "pod": "kindnet-vmsvl",
+    "container": "kindnet-cni",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "ba62a84626f391f8fc44c9c95242d15bf6f4c89db9d1c89120f92636fd310adf",
+    "ns": "kube-system",
+    "pod": "kindnet-xvv8v",
+    "container": "kindnet-cni",
+    "node": "bench-worker"
+  },
+  {
+    "id": "0f1389283354923a12293140718de756b1950e9b2ad6a622635cc29f8ae5dfd8",
+    "ns": "kube-system",
+    "pod": "kube-apiserver-bench-control-plane",
+    "container": "kube-apiserver",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "7f86c820c475a60b698cf1d10fc54f9f719b5029a2da2ee08d72dcb8c9df2bc9",
+    "ns": "kube-system",
+    "pod": "kube-controller-manager-bench-control-plane",
+    "container": "kube-controller-manager",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "7fbed8b72073f97b56055769b05db748eec68580b92f3b5f5787928bb79f99a0",
+    "ns": "kube-system",
+    "pod": "kube-proxy-242c8",
+    "container": "kube-proxy",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "48304a460b01199919fea3ff59e061ed4e677b0628ac999c08feff3cfdd16174",
+    "ns": "kube-system",
+    "pod": "kube-proxy-7gjln",
+    "container": "kube-proxy",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "2c857be97fec8286369ffa4b060b8105d704a7a46f098ee5d759e1c9e99f14cd",
+    "ns": "kube-system",
+    "pod": "kube-proxy-m4jtq",
+    "container": "kube-proxy",
+    "node": "bench-worker"
+  },
+  {
+    "id": "38870f3b71c9e254ac1b05c500a8fb90a859b7ab55ab06ab527eb0dc0f9bb982",
+    "ns": "kube-system",
+    "pod": "kube-scheduler-bench-control-plane",
+    "container": "kube-scheduler",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "1a74184c9d07f4c1347ea23dba228e188579703361a939777e816f083b4ec392",
+    "ns": "linkerd",
+    "pod": "linkerd-destination-7df5bc86db-5wzvd",
+    "container": "destination",
+    "node": "bench-worker"
+  },
+  {
+    "id": "55b16376e2a385df80aed79a4b13c63c632f51fe538e88ebcaa98e49fd3c731f",
+    "ns": "linkerd",
+    "pod": "linkerd-destination-7df5bc86db-5wzvd",
+    "container": "policy",
+    "node": "bench-worker"
+  },
+  {
+    "id": "6c0e8f365723bffe337aebbe063c233243d34788920f6098c1fa1b903ad05348",
+    "ns": "linkerd",
+    "pod": "linkerd-destination-7df5bc86db-5wzvd",
+    "container": "sp-validator",
+    "node": "bench-worker"
+  },
+  {
+    "id": "d16f239ca1abfec885051a800d26305ba906f642ae70bb36e74f6dc07ecabf1c",
+    "ns": "linkerd",
+    "pod": "linkerd-destination-7df5bc86db-5wzvd",
+    "container": "linkerd-init",
+    "node": "bench-worker"
+  },
+  {
+    "id": "7f76f732f7bc2474f0c81edfa067bf747a4d86690520a178229355f3bfaa0acc",
+    "ns": "linkerd",
+    "pod": "linkerd-destination-7df5bc86db-5wzvd",
+    "container": "linkerd-proxy",
+    "node": "bench-worker"
+  },
+  {
+    "id": "3d9a38770b67441321211e2fd96ce6910b380bb86fd560ef494d418fbbf64c27",
+    "ns": "linkerd",
+    "pod": "linkerd-identity-7844c88cf5-xjp5f",
+    "container": "identity",
+    "node": "bench-worker"
+  },
+  {
+    "id": "e92fbd77e2197efad46fae5e037c74471876cb0c7d8aedbaa585dec974f6a6c7",
+    "ns": "linkerd",
+    "pod": "linkerd-identity-7844c88cf5-xjp5f",
+    "container": "linkerd-proxy",
+    "node": "bench-worker"
+  },
+  {
+    "id": "54823f7229abc217cb5430c357301bfc87f865682c48442aab2dc9b633a6a3a1",
+    "ns": "linkerd",
+    "pod": "linkerd-identity-7844c88cf5-xjp5f",
+    "container": "linkerd-init",
+    "node": "bench-worker"
+  },
+  {
+    "id": "519c3102f2dd7718fb3dba899f2c7d0fdc957d77af3d39b9117e9ed1ae445db5",
+    "ns": "linkerd",
+    "pod": "linkerd-proxy-injector-7f66986955-frnmf",
+    "container": "proxy-injector",
+    "node": "bench-worker"
+  },
+  {
+    "id": "8764bb8d9350bfc681caf748437e7601c79fa16281dbb934bcb3eb29b827001a",
+    "ns": "linkerd",
+    "pod": "linkerd-proxy-injector-7f66986955-frnmf",
+    "container": "linkerd-init",
+    "node": "bench-worker"
+  },
+  {
+    "id": "c66177a4c55e903d6e68a602e159aa3fa53a0fde7a337f4b725a8dc7842ad748",
+    "ns": "linkerd",
+    "pod": "linkerd-proxy-injector-7f66986955-frnmf",
+    "container": "linkerd-proxy",
+    "node": "bench-worker"
+  },
+  {
+    "id": "2a05eddb862e3b20649504daf76d33fc29906c0fb86b711389dbfb0db3ccc735",
+    "ns": "local-path-storage",
+    "pod": "local-path-provisioner-56c4685b7c-rjblm",
+    "container": "local-path-provisioner",
+    "node": "bench-control-plane"
+  }
+]

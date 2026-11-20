@@ -1,0 +1,84 @@
+2026-11-20T15:29:01Z [cilium] cluster
+Creating cluster "bench" ...
+ • Ensuring node image (kindest/node:v1.36.4) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.36.4) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-bench"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-bench
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-control-plane", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker2", loading...
+2026-11-20T15:29:24Z [cilium] install
+Waiting for daemon set "cilium" rollout to finish: 0 of 3 updated pods are available...
+Waiting for daemon set "cilium" rollout to finish: 1 of 3 updated pods are available...
+Waiting for daemon set "cilium" rollout to finish: 2 of 3 updated pods are available...
+daemon set "cilium" successfully rolled out
+Waiting for daemon set "cilium-envoy" rollout to finish: 2 of 3 updated pods are available...
+daemon set "cilium-envoy" successfully rolled out
+2026-11-20T15:30:10Z [cilium] app
+Waiting for deployment "client" rollout to finish: 0 of 1 updated replicas are available...
+deployment "client" successfully rolled out
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+deployment "hop-c" successfully rolled out
+2026-11-20T15:30:14Z [cilium] policy
+ciliumnetworkpolicy.cilium.io/hop-b created
+config=cilium-wg-l7
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795188632.786272,"level":"err","r":1,"file":"http_client.go","line":954,"msg":"Unable to connect","dest":{"IP":"10.96.46.244","Port":8080,"Zone":""},"err":"dial tcp 10.96.46.244:8080: i/o timeout","numfd":6,"thread":0,"run":0}
+{"ts":1795188632.786301,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status -1"}
+command terminated with exit code 1
+--- cilium status on bench-worker (hop-b's node)
+KubeProxyReplacement:    False   
+Routing:                 Network: Tunnel [vxlan]   Host: Legacy
+Proxy Status:            OK, ip 10.244.2.133, 1 redirects active on ports 10000-20000, Envoy: external
+Encryption:              Wireguard       [NodeEncryption: Disabled, cilium_wg0 (Pubkey: R/wGZ3gMt3Oa+2tR+g1xP/4fHcuhWpAHQYFwHNC3YCM=, Port: 51871, Peers: 2)]
+--- cilium_wg0 counters before and after 1,000 chain requests
+    RX:  bytes packets errors dropped  missed   mcast           
+          3780      22      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+          3356      20      0       0       0       0 
+    RX:  bytes packets errors dropped  missed   mcast           
+        794276    3062      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+        779676    3076      0       0       0       0 
+2026-11-20T15:30:33Z [cilium] upgrade-under-load
+1795188634.087310551 load-start
+1795188664.091578476 upgrade-start
+1795188692.362966482 upgrade-mesh-done
+1795188692.366916072 actions-done
+1795188934.234416127 load-end
+requests=60000 failed=3 max_ok_latency_ms=1074.2 actions_finished_before_load_end=True
+2026-11-20T15:35:35Z [cilium] latency
+pilot-cilium-wg-l7 rep1 qps100: p50=6.901ms p99=10.699ms actual=100 codes={"200":992}
+pilot-cilium-wg-l7 rep1 qps500: p50=6.469ms p99=11.029ms actual=500 codes={"200":4992}
+pilot-cilium-wg-l7 rep1 qps1000: p50=5.946ms p99=10.63ms actual=999 codes={"200":10000}
+pilot-cilium-wg-l7 max rep1: qps=1965 codes={"200":58963}
+pilot-cilium-wg-l7 max rep2: qps=1997 codes={"200":59925}
+pilot-cilium-wg-l7 max rep3: qps=1994 codes={"200":59834}
+2026-11-20T15:38:27Z [cilium] restart-under-load-1
+1795189108.107602188 load-start
+1795189138.111888681 restart-start
+1795189164.552072917 restart-mesh-done
+1795189164.554608788 actions-done
+1795189308.259455404 load-end
+requests=40000 failed=8 max_ok_latency_ms=2118.9 actions_finished_before_load_end=True
+2026-11-20T15:41:48Z [cilium] restart-under-load-2
+1795189309.073999254 load-start
+1795189339.077944339 restart-start

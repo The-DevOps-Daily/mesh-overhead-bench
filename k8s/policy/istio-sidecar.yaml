@@ -1,0 +1,10 @@
+# Only hop-a may call hop-b, and only with GET. Enforced by hop-b's sidecar.
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata: {name: hop-b, namespace: bench}
+spec:
+  selector: {matchLabels: {app: hop-b}}
+  action: ALLOW
+  rules:
+  - from: [{source: {principals: ["cluster.local/ns/bench/sa/hop-a"]}}]
+    to: [{operation: {methods: ["GET"]}}]

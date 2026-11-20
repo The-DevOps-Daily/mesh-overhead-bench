@@ -1,0 +1,9 @@
+# Only hop-a may call hop-b. L4 only, so ztunnel can enforce it without a waypoint.
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata: {name: hop-b, namespace: bench}
+spec:
+  selector: {matchLabels: {app: hop-b}}
+  action: ALLOW
+  rules:
+  - from: [{source: {principals: ["cluster.local/ns/bench/sa/hop-a"]}}]

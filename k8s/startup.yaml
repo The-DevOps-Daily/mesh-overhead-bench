@@ -1,0 +1,19 @@
+# 10 copies of hop-c, used only to time pod startup inside the mesh.
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: startup, namespace: bench}
+spec:
+  replicas: 10
+  selector: {matchLabels: {app: startup}}
+  template:
+    metadata: {labels: {app: startup}}
+    spec:
+      serviceAccountName: hop-c
+      containers:
+      - name: hop
+        image: hop:v1
+        imagePullPolicy: IfNotPresent
+        env: [{name: NAME, value: startup}]
+        ports: [{containerPort: 8080}]
+        readinessProbe: {httpGet: {path: /healthz, port: 8080}, periodSeconds: 1}
+        resources: {requests: {cpu: 10m, memory: 16Mi}}

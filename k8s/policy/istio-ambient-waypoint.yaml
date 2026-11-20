@@ -1,0 +1,21 @@
+# The GET-only rule is L7, so hop-b gets a waypoint. hop-a and hop-c stay L4-only.
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: waypoint
+  namespace: bench
+  labels: {istio.io/waypoint-for: service}
+spec:
+  gatewayClassName: istio-waypoint
+  listeners:
+  - {name: mesh, port: 15008, protocol: HBONE}
+---
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata: {name: hop-b-l7, namespace: bench}
+spec:
+  targetRefs: [{kind: Service, group: "", name: hop-b}]
+  action: ALLOW
+  rules:
+  - from: [{source: {principals: ["cluster.local/ns/bench/sa/hop-a"]}}]
+    to: [{operation: {methods: ["GET"]}}]

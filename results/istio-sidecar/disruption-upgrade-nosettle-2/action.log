@@ -1,0 +1,40 @@
+        |\          
+        | \         
+        |  \        
+        |   \       
+      /||    \      
+     / ||     \     
+    /  ||      \    
+   /   ||       \   
+  /    ||        \  
+ /     ||         \ 
+/______||__________\
+____________________
+  \__       _____/  
+     \_____/        
+
+WARNING: Istio is being upgraded from 1.31.4 to 1.32.0.
+         Running this command will overwrite it; use revisions to upgrade alongside the existing version.
+         Before upgrading, you may wish to use 'istioctl x precheck' to check for upgrade warnings.
+
+- Processing resources for Istio core.
+✔ Istio core installed ⛵️
+- Processing resources for Istiod.
+- Processing resources for Istiod. Waiting for Deployment/istio-system/istiod
+✔ Istiod installed 🧠
+- Processing resources for Ingress gateways.
+- Processing resources for Ingress gateways. Waiting for Deployment/istio-system/istio-ingressgat...
+✔ Ingress gateways installed 🛬
+- Pruning removed resources
+✔ Installation completedeployment "istio-ingressgateway" successfully rolled out
+deployment "istiod" successfully rolled out
+deployment.apps/hop-a restarted
+deployment.apps/hop-b restarted
+deployment.apps/hop-c restarted
+Waiting for deployment "hop-a" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "hop-a" rollout to finish: 1 old replicas are pending termination...
+deployment "hop-a" successfully rolled out
+Waiting for deployment "hop-b" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "hop-b" rollout to finish: 1 old replicas are pending termination...
+deployment "hop-b" successfully rolled out
+deployment "hop-c" successfully rolled out

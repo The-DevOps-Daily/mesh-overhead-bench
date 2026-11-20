@@ -1,0 +1,52 @@
+# Only hop-a may call hop-b, and only GET /. Kubelet probes keep their own route.
+apiVersion: policy.linkerd.io/v1beta3
+kind: Server
+metadata: {name: hop-b, namespace: bench}
+spec:
+  podSelector: {matchLabels: {app: hop-b}}
+  port: 8080
+  proxyProtocol: HTTP/1
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata: {name: hop-b-get, namespace: bench}
+spec:
+  parentRefs: [{name: hop-b, kind: Server, group: policy.linkerd.io}]
+  rules:
+  - matches: [{path: {type: Exact, value: /}, method: GET}]
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata: {name: hop-b-probe, namespace: bench}
+spec:
+  parentRefs: [{name: hop-b, kind: Server, group: policy.linkerd.io}]
+  rules:
+  - matches: [{path: {type: Exact, value: /healthz}, method: GET}]
+---
+apiVersion: policy.linkerd.io/v1alpha1
+kind: MeshTLSAuthentication
+metadata: {name: hop-a, namespace: bench}
+spec:
+  identities: ["hop-a.bench.serviceaccount.identity.linkerd.cluster.local"]
+---
+apiVersion: policy.linkerd.io/v1alpha1
+kind: AuthorizationPolicy
+metadata: {name: hop-b-get, namespace: bench}
+spec:
+  targetRef: {group: gateway.networking.k8s.io, kind: HTTPRoute, name: hop-b-get}
+  requiredAuthenticationRefs:
+  - {name: hop-a, kind: MeshTLSAuthentication, group: policy.linkerd.io}
+---
+apiVersion: policy.linkerd.io/v1alpha1
+kind: NetworkAuthentication
+metadata: {name: probes, namespace: bench}
+spec:
+  networks: [{cidr: 0.0.0.0/0}, {cidr: "::/0"}]
+---
+apiVersion: policy.linkerd.io/v1alpha1
+kind: AuthorizationPolicy
+metadata: {name: hop-b-probe, namespace: bench}
+spec:
+  targetRef: {group: gateway.networking.k8s.io, kind: HTTPRoute, name: hop-b-probe}
+  requiredAuthenticationRefs:
+  - {name: probes, kind: NetworkAuthentication, group: policy.linkerd.io}

@@ -1,0 +1,6 @@
+config=none
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+HTTP/1.1 200 OK

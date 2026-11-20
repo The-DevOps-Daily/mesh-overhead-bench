@@ -1,0 +1,36 @@
+        |\          
+        | \         
+        |  \        
+        |   \       
+      /||    \      
+     / ||     \     
+    /  ||      \    
+   /   ||       \   
+  /    ||        \  
+ /     ||         \ 
+/______||__________\
+____________________
+  \__       _____/  
+     \_____/        
+
+WARNING: Istio is being upgraded from 1.31.4 to 1.32.0.
+         Running this command will overwrite it; use revisions to upgrade alongside the existing version.
+         Before upgrading, you may wish to use 'istioctl x precheck' to check for upgrade warnings.
+
+- Processing resources for Istio core.
+✔ Istio core installed ⛵️
+- Processing resources for CNI, Istiod.
+- Processing resources for CNI, Istiod. Waiting for DaemonSet/istio-system/istio-cni-node
+- Processing resources for CNI, Istiod. Waiting for DaemonSet/istio-system/istio-cni-node, Deploy...
+✔ Istiod installed 🧠
+- Processing resources for CNI. Waiting for DaemonSet/istio-system/istio-cni-node
+✔ CNI installed 🪢
+- Processing resources for Ztunnel.
+- Processing resources for Ztunnel. Waiting for DaemonSet/istio-system/ztunnel
+✔ Ztunnel installed 🔒
+- Pruning removed resources
+✔ Installation completeThe ambient profile has been installed successfully, enjoy Istio without sidecars!
+deployment "istiod" successfully rolled out
+daemon set "ztunnel" successfully rolled out
+daemon set "istio-cni-node" successfully rolled out
+deployment "waypoint" successfully rolled out

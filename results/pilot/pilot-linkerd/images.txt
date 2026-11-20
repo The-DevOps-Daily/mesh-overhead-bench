@@ -1,0 +1,21 @@
+bench client-5576fdf4c6-dvtlv fortio/fortio:1.77.0 cr.l5d.io/linkerd/proxy:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 
+bench client-58b9b8b99-tljvm fortio/fortio:1.77.0 cr.l5d.io/linkerd/proxy:edge-26.11.1 cr.l5d.io/linkerd/proxy:edge-26.11.1 
+bench hop-a-5668896b58-nqwsw hop:v1 cr.l5d.io/linkerd/proxy:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 
+bench hop-b-8499d54d58-tmhwt hop:v1 cr.l5d.io/linkerd/proxy:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 
+bench hop-c-77f59dd9c-9d6pp hop:v1 cr.l5d.io/linkerd/proxy:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 
+kube-system coredns-589f44dc88-b8z52 registry.k8s.io/coredns/coredns:v1.14.2 
+kube-system coredns-589f44dc88-hbdlx registry.k8s.io/coredns/coredns:v1.14.2 
+kube-system etcd-bench-control-plane registry.k8s.io/etcd:3.6.8-0 
+kube-system kindnet-c4kjq docker.io/kindest/kindnetd:v20260820-69b56db7 
+kube-system kindnet-j98hq docker.io/kindest/kindnetd:v20260820-69b56db7 
+kube-system kindnet-tnp6x docker.io/kindest/kindnetd:v20260820-69b56db7 
+kube-system kube-apiserver-bench-control-plane registry.k8s.io/kube-apiserver:v1.36.4 
+kube-system kube-controller-manager-bench-control-plane registry.k8s.io/kube-controller-manager:v1.36.4 
+kube-system kube-proxy-hxcw9 registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-proxy-kkmkh registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-proxy-s69cv registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-scheduler-bench-control-plane registry.k8s.io/kube-scheduler:v1.36.4 
+linkerd linkerd-destination-65b6f98db8-fd56m cr.l5d.io/linkerd/controller:edge-26.11.2 cr.l5d.io/linkerd/controller:edge-26.11.2 cr.l5d.io/linkerd/controller:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 
+linkerd linkerd-identity-59cb77fd94-jtd6v cr.l5d.io/linkerd/controller:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 
+linkerd linkerd-proxy-injector-8d55cdb97-5ls44 cr.l5d.io/linkerd/controller:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 
+local-path-storage local-path-provisioner-56c4685b7c-6slnz docker.io/kindest/local-path-provisioner:v20260820-69b56db7 

@@ -1,0 +1,8 @@
+deployment.apps/hop-a restarted
+deployment.apps/hop-b restarted
+deployment.apps/hop-c restarted
+Waiting for deployment "hop-a" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "hop-a" rollout to finish: 1 old replicas are pending termination...
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+deployment "hop-c" successfully rolled out

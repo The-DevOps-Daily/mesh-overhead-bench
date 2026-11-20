@@ -1,0 +1,9 @@
+config=linkerd
+--- client -> hop-a (chain, expect 200)
+HTTP/1.1 200 OK
+hop-a ok
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795208939.087402,"level":"warn","r":1,"file":"http_client.go","line":1155,"msg":"Non ok http code","code":403,"status":"HTTP/1.1 403","thread":0,"run":0}
+{"ts":1795208939.087462,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status 403"}
+HTTP/1.1 403 Forbidden
+command terminated with exit code 1

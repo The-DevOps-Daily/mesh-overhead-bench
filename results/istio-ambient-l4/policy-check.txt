@@ -1,0 +1,8 @@
+config=istio-ambient-l4
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795195434.194682,"level":"err","r":1,"file":"http_client.go","line":1134,"msg":"Read error","err":"read tcp 10.244.2.4:42548->10.96.27.50:8080: read: connection reset by peer","size":0,"header_len":0,"dest":{"IP":"10.96.27.50","Port":8080,"Zone":""},"url":"http://hop-b:8080/","thread":0,"run":0}
+{"ts":1795195434.194720,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status -1"}
+command terminated with exit code 1

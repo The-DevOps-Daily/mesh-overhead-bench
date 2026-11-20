@@ -1,0 +1,24 @@
+Fortio 1.77.0 running at 200 queries per second, 4 procs, for 2m40s: http://hop-a:8080/
+Aggregated Function Time : count 32000 avg 0.0059719237 +/- 0.03402 min 0.001962108 max 2.160277404 sum 191.10156
+# target 50% 0.0046705
+# target 75% 0.00580224
+# target 90% 0.00759965
+# target 99% 0.0225815
+# target 99.9% 0.05
+Error cases : count 0 avg 0 +/- 0 min 0 max 0 sum 0
+# Socket and IP used for each connection:
+[0]   1 socket used, resolved to 10.96.232.33:8080, connection timing : count 1 avg 0.000812583 +/- 0 min 0.000812583 max 0.000812583 sum 0.000812583
+[1]   1 socket used, resolved to 10.96.232.33:8080, connection timing : count 1 avg 0.001031606 +/- 0 min 0.001031606 max 0.001031606 sum 0.001031606
+[2]   1 socket used, resolved to 10.96.232.33:8080, connection timing : count 1 avg 0.001062071 +/- 0 min 0.001062071 max 0.001062071 sum 0.001062071
+[3]   1 socket used, resolved to 10.96.232.33:8080, connection timing : count 1 avg 0.001289181 +/- 0 min 0.001289181 max 0.001289181 sum 0.001289181
+[4]   1 socket used, resolved to 10.96.232.33:8080, connection timing : count 1 avg 0.000956121 +/- 0 min 0.000956121 max 0.000956121 sum 0.000956121
+[5]   1 socket used, resolved to 10.96.232.33:8080, connection timing : count 1 avg 0.001213462 +/- 0 min 0.001213462 max 0.001213462 sum 0.001213462
+[6]   1 socket used, resolved to 10.96.232.33:8080, connection timing : count 1 avg 0.001254033 +/- 0 min 0.001254033 max 0.001254033 sum 0.001254033
+[7]   1 socket used, resolved to 10.96.232.33:8080, connection timing : count 1 avg 0.001108367 +/- 0 min 0.001108367 max 0.001108367 sum 0.001108367
+Sockets used: 8 (for perfect keepalive, would be 8)
+Uniform: false, Jitter: false, Catchup allowed: true
+IP addresses distribution:
+10.96.232.33:8080: 8
+Code 200 : 32000 (100.0 %)
+All done 32000 calls (plus 8 warmup) 5.972 ms avg, 200.0 qps
+Successfully wrote 6481 bytes of Json data to stdout

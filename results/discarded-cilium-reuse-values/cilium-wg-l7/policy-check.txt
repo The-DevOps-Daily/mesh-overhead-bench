@@ -1,0 +1,22 @@
+config=cilium-wg-l7
+--- client -> hop-a (chain, expect 200)
+HTTP/1.1 200 OK
+hop-a ok
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795207365.915155,"level":"err","r":1,"file":"http_client.go","line":954,"msg":"Unable to connect","dest":{"IP":"10.96.146.215","Port":8080,"Zone":""},"err":"dial tcp 10.96.146.215:8080: i/o timeout","numfd":6,"thread":0,"run":0}
+{"ts":1795207365.915182,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status -1"}
+command terminated with exit code 1
+--- cilium status on bench-worker (hop-b's node)
+KubeProxyReplacement:    False   
+Routing:                 Network: Tunnel [vxlan]   Host: Legacy
+Proxy Status:            OK, ip 10.244.1.25, 1 redirects active on ports 10000-20000, Envoy: external
+Encryption:              Wireguard       [NodeEncryption: Disabled, cilium_wg0 (Pubkey: tgjihYorFshvCTLbAZQVTMSLLUDzkwBwvK+xJybIM3A=, Port: 51871, Peers: 2)]
+--- cilium_wg0 counters before and after 1,000 chain requests
+    RX:  bytes packets errors dropped  missed   mcast           
+          3628      20      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+          3876      23      0       0       0       0 
+    RX:  bytes packets errors dropped  missed   mcast           
+        794124    3060      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+        781060    3085      0       0       0       0 

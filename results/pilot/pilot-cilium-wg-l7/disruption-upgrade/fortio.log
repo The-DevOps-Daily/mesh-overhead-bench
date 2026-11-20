@@ -1,0 +1,25 @@
+Fortio 1.77.0 running at 200 queries per second, 4 procs, for 5m0s: http://hop-a:8080/
+Aggregated Function Time : count 60000 avg 0.0053074601 +/- 0.01268 min 0.001710391 max 1.074164139 sum 318.447607
+# target 50% 0.00455385
+# target 75% 0.00560701
+# target 90% 0.00683327
+# target 99% 0.0196047
+# target 99.9% 0.0539286
+Error cases : count 3 avg 0.021718007 +/- 0.002054 min 0.019455629 max 0.0244279 sum 0.065154022
+# Socket and IP used for each connection:
+[0]   1 socket used, resolved to 10.96.122.138:8080, connection timing : count 1 avg 0.000519669 +/- 0 min 0.000519669 max 0.000519669 sum 0.000519669
+[1]   1 socket used, resolved to 10.96.122.138:8080, connection timing : count 1 avg 0.000628688 +/- 0 min 0.000628688 max 0.000628688 sum 0.000628688
+[2]   2 socket used, resolved to 10.96.122.138:8080, connection timing : count 2 avg 0.0006382675 +/- 0.0001139 min 0.000524345 max 0.00075219 sum 0.001276535
+[3]   2 socket used, resolved to 10.96.122.138:8080, connection timing : count 2 avg 0.0007180315 +/- 3.33e-05 min 0.000684729 max 0.000751334 sum 0.001436063
+[4]   1 socket used, resolved to 10.96.122.138:8080, connection timing : count 1 avg 0.000571461 +/- 0 min 0.000571461 max 0.000571461 sum 0.000571461
+[5]   1 socket used, resolved to 10.96.122.138:8080, connection timing : count 1 avg 0.000458068 +/- 0 min 0.000458068 max 0.000458068 sum 0.000458068
+[6]   1 socket used, resolved to 10.96.122.138:8080, connection timing : count 1 avg 0.000524869 +/- 0 min 0.000524869 max 0.000524869 sum 0.000524869
+[7]   2 socket used, resolved to 10.96.122.138:8080, connection timing : count 2 avg 0.000819445 +/- 0.0001531 min 0.000666298 max 0.000972592 sum 0.00163889
+Sockets used: 11 (for perfect keepalive, would be 8)
+Uniform: false, Jitter: false, Catchup allowed: true
+IP addresses distribution:
+10.96.122.138:8080: 11
+Code 200 : 59997 (100.0 %)
+Code 502 : 3 (0.0 %)
+All done 60000 calls (plus 8 warmup) 5.307 ms avg, 200.0 qps
+Successfully wrote 7886 bytes of Json data to stdout

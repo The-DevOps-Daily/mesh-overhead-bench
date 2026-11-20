@@ -1,0 +1,210 @@
+{
+  "RunType": "HTTP",
+  "Labels": "hop-a:8080/ , client-58b9b8b99-jnqhv",
+  "StartTime": "2026-11-20T15:50:01.177382641Z",
+  "RequestedQPS": "100",
+  "RequestedDuration": "1m0s",
+  "ActualQPS": 99.99537001271108,
+  "ActualDuration": 60002778121,
+  "NumThreads": 16,
+  "GoMaxProcs": 4,
+  "NumCPU": 4,
+  "WarmupCalls": 16,
+  "Version": "1.77.0",
+  "DurationHistogram": {
+    "Count": 6000,
+    "Min": 0.000582236,
+    "Max": 0.004367799,
+    "Sum": 12.370919026,
+    "Avg": 0.0020618198376666664,
+    "StdDev": 0.0004476780206800948,
+    "Data": [
+      {
+        "Start": 0.000582236,
+        "End": 0.001,
+        "Percent": 0.4,
+        "Count": 24
+      },
+      {
+        "Start": 0.001,
+        "End": 0.002,
+        "Percent": 46.6,
+        "Count": 2772
+      },
+      {
+        "Start": 0.002,
+        "End": 0.003,
+        "Percent": 95.76666666666667,
+        "Count": 2950
+      },
+      {
+        "Start": 0.003,
+        "End": 0.004,
+        "Percent": 99.85,
+        "Count": 245
+      },
+      {
+        "Start": 0.004,
+        "End": 0.004367799,
+        "Percent": 100,
+        "Count": 9
+      }
+    ],
+    "Percentiles": [
+      {
+        "Percentile": 50,
+        "Value": 0.0020691525423728813
+      },
+      {
+        "Percentile": 90,
+        "Value": 0.0028827118644067797
+      },
+      {
+        "Percentile": 99,
+        "Value": 0.003791836734693879
+      },
+      {
+        "Percentile": 99.9,
+        "Value": 0.00412259966666669
+      }
+    ]
+  },
+  "ErrorsDurationHistogram": {
+    "Count": 0,
+    "Min": 0,
+    "Max": 0,
+    "Sum": 0,
+    "Avg": 0,
+    "StdDev": 0,
+    "Data": null
+  },
+  "Exactly": 0,
+  "Jitter": false,
+  "Uniform": false,
+  "NoCatchUp": false,
+  "RunID": 0,
+  "AccessLoggerInfo": "",
+  "ID": "2026-11-20-155001_hop_a_8080_client_58b9b8b99_jnqhv",
+  "RetCodes": {
+    "200": 6000
+  },
+  "IPCountMap": {
+    "10.96.93.26:8080": 16
+  },
+  "Insecure": false,
+  "MTLS": false,
+  "CACert": "",
+  "Cert": "",
+  "Key": "",
+  "UnixDomainSocket": "",
+  "URL": "http://hop-a:8080/",
+  "NumConnections": 1,
+  "Compression": false,
+  "DisableFastClient": false,
+  "HTTP10": false,
+  "H2": false,
+  "DisableKeepAlive": false,
+  "AllowHalfClose": false,
+  "FollowRedirects": false,
+  "Resolve": "",
+  "HTTPReqTimeOut": 3000000000,
+  "UserCredentials": "",
+  "ContentType": "",
+  "Payload": "",
+  "MethodOverride": "",
+  "LogErrors": true,
+  "SequentialWarmup": false,
+  "ConnReuseRange": [
+    0,
+    0
+  ],
+  "NoResolveEachConn": false,
+  "Offset": 0,
+  "Resolution": 0.001,
+  "Sizes": {
+    "Count": 6000,
+    "Min": 125,
+    "Max": 125,
+    "Sum": 750000,
+    "Avg": 125,
+    "StdDev": 0,
+    "Data": [
+      {
+        "Start": 125,
+        "End": 125,
+        "Percent": 100,
+        "Count": 6000
+      }
+    ]
+  },
+  "HeaderSizes": {
+    "Count": 6000,
+    "Min": 116,
+    "Max": 116,
+    "Sum": 696000,
+    "Avg": 116,
+    "StdDev": 0,
+    "Data": [
+      {
+        "Start": 116,
+        "End": 116,
+        "Percent": 100,
+        "Count": 6000
+      }
+    ]
+  },
+  "Sockets": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "SocketCount": 16,
+  "ConnectionStats": {
+    "Count": 16,
+    "Min": 0.000058885,
+    "Max": 0.000355926,
+    "Sum": 0.0028941999999999996,
+    "Avg": 0.00018088749999999997,
+    "StdDev": 0.00008598485213978107,
+    "Data": [
+      {
+        "Start": 0.000058885,
+        "End": 0.000355926,
+        "Percent": 100,
+        "Count": 16
+      }
+    ],
+    "Percentiles": [
+      {
+        "Percentile": 50,
+        "Value": 0.00019750413333333335
+      },
+      {
+        "Percentile": 90,
+        "Value": 0.00032424162666666665
+      },
+      {
+        "Percentile": 99,
+        "Value": 0.00035275756266666666
+      },
+      {
+        "Percentile": 99.9,
+        "Value": 0.00035560915626666666
+      }
+    ]
+  },
+  "AbortOn": 0
+}

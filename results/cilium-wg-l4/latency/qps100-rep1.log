@@ -1,0 +1,31 @@
+Fortio 1.77.0 running at 100 queries per second, 4 procs, for 1m0s: http://hop-a:8080/
+Aggregated Function Time : count 6000 avg 0.0038309092 +/- 0.0006789 min 0.00179315 max 0.008885695 sum 22.9854553
+# target 50% 0.00371288
+# target 90% 0.00483223
+# target 99% 0.00613559
+# target 99.9% 0.0075
+Error cases : count 0 avg 0 +/- 0 min 0 max 0 sum 0
+# Socket and IP used for each connection:
+[0]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.0025802 +/- 0 min 0.0025802 max 0.0025802 sum 0.0025802
+[1]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.002361361 +/- 0 min 0.002361361 max 0.002361361 sum 0.002361361
+[2]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.002505582 +/- 0 min 0.002505582 max 0.002505582 sum 0.002505582
+[3]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.001693827 +/- 0 min 0.001693827 max 0.001693827 sum 0.001693827
+[4]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.001811494 +/- 0 min 0.001811494 max 0.001811494 sum 0.001811494
+[5]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.001629815 +/- 0 min 0.001629815 max 0.001629815 sum 0.001629815
+[6]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.001542549 +/- 0 min 0.001542549 max 0.001542549 sum 0.001542549
+[7]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.001645383 +/- 0 min 0.001645383 max 0.001645383 sum 0.001645383
+[8]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.00128523 +/- 0 min 0.00128523 max 0.00128523 sum 0.00128523
+[9]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.001418307 +/- 0 min 0.001418307 max 0.001418307 sum 0.001418307
+[10]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.002381924 +/- 0 min 0.002381924 max 0.002381924 sum 0.002381924
+[11]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.001239174 +/- 0 min 0.001239174 max 0.001239174 sum 0.001239174
+[12]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.001163079 +/- 0 min 0.001163079 max 0.001163079 sum 0.001163079
+[13]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.000555599 +/- 0 min 0.000555599 max 0.000555599 sum 0.000555599
+[14]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.000545898 +/- 0 min 0.000545898 max 0.000545898 sum 0.000545898
+[15]   1 socket used, resolved to 10.96.98.22:8080, connection timing : count 1 avg 0.001834803 +/- 0 min 0.001834803 max 0.001834803 sum 0.001834803
+Sockets used: 16 (for perfect keepalive, would be 16)
+Uniform: false, Jitter: false, Catchup allowed: true
+IP addresses distribution:
+10.96.98.22:8080: 16
+Code 200 : 6000 (100.0 %)
+All done 6000 calls (plus 16 warmup) 3.831 ms avg, 100.0 qps
+Successfully wrote 4419 bytes of Json data to stdout

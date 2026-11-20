@@ -1,0 +1,9 @@
+# Only hop-a may reach hop-b on 8080. Enforced in eBPF, no proxy involved.
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata: {name: hop-b, namespace: bench}
+spec:
+  endpointSelector: {matchLabels: {app: hop-b}}
+  ingress:
+  - fromEndpoints: [{matchLabels: {app: hop-a}}]
+    toPorts: [{ports: [{port: "8080", protocol: TCP}]}]

@@ -1,0 +1,22 @@
+bench client-58b9b8b99-tckr8 fortio/fortio:1.77.0 
+bench hop-a-7f8d5b9fd9-wbbn4 hop:v1 
+bench hop-b-6cd556875c-xgx4c hop:v1 
+bench hop-c-6f9b86d5d6-tr5sw hop:v1 
+kube-system cilium-dx7tx quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e 
+kube-system cilium-envoy-5kxjl quay.io/cilium/cilium-envoy:v1.39.5-1792733054-8c73b2816bc8239e27f1fd53b271884688137459@sha256:547ab45f6092f681d9f54f3be9fa8fb1e705c9c5dc2df388efe3a52aa6965629 
+kube-system cilium-envoy-6vgs9 quay.io/cilium/cilium-envoy:v1.39.5-1792733054-8c73b2816bc8239e27f1fd53b271884688137459@sha256:547ab45f6092f681d9f54f3be9fa8fb1e705c9c5dc2df388efe3a52aa6965629 
+kube-system cilium-envoy-kvvgm quay.io/cilium/cilium-envoy:v1.39.5-1792733054-8c73b2816bc8239e27f1fd53b271884688137459@sha256:547ab45f6092f681d9f54f3be9fa8fb1e705c9c5dc2df388efe3a52aa6965629 
+kube-system cilium-operator-6c9b9ccf6c-72xsk quay.io/cilium/operator-generic:v1.20.4@sha256:7a7a3489dc66ad67e420d285c8a8d2e169b0957ad15e120f593d27081bf38d82 
+kube-system cilium-operator-6c9b9ccf6c-s7wxs quay.io/cilium/operator-generic:v1.20.4@sha256:7a7a3489dc66ad67e420d285c8a8d2e169b0957ad15e120f593d27081bf38d82 
+kube-system cilium-qbz4p quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e 
+kube-system cilium-whh9b quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e quay.io/cilium/cilium:v1.20.4@sha256:20fe92e4c86641233a450098c158d2d29085f3419931ab6bf681d2485dedf16e 
+kube-system coredns-589f44dc88-6m4r4 registry.k8s.io/coredns/coredns:v1.14.2 
+kube-system coredns-589f44dc88-vpvtk registry.k8s.io/coredns/coredns:v1.14.2 
+kube-system etcd-bench-control-plane registry.k8s.io/etcd:3.6.8-0 
+kube-system kube-apiserver-bench-control-plane registry.k8s.io/kube-apiserver:v1.36.4 
+kube-system kube-controller-manager-bench-control-plane registry.k8s.io/kube-controller-manager:v1.36.4 
+kube-system kube-proxy-c5wqs registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-proxy-rttbn registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-proxy-tkzn8 registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-scheduler-bench-control-plane registry.k8s.io/kube-scheduler:v1.36.4 
+local-path-storage local-path-provisioner-56c4685b7c-s5hxs docker.io/kindest/local-path-provisioner:v20260820-69b56db7 

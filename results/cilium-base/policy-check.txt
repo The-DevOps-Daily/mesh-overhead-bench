@@ -1,0 +1,12 @@
+config=cilium-base
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+HTTP/1.1 200 OK
+--- cilium status on bench-worker (hop-b's node)
+KubeProxyReplacement:    False   
+Routing:                 Network: Tunnel [vxlan]   Host: Legacy
+Proxy Status:            OK, ip 10.244.1.45, 0 redirects active on ports 10000-20000, Envoy: external
+Encryption:              Disabled        
+--- cilium_wg0 counters before and after 1,000 chain requests

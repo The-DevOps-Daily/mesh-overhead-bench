@@ -1,0 +1,767 @@
+2026-11-20T15:43:15Z [none] cluster
+Creating cluster "bench" ...
+ • Ensuring node image (kindest/node:v1.36.4) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.36.4) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-bench"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-bench
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-control-plane", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker2", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker", loading...
+2026-11-20T15:43:40Z [none] install
+2026-11-20T15:43:40Z [none] app
+Waiting for deployment "client" rollout to finish: 0 of 1 updated replicas are available...
+deployment "client" successfully rolled out
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+deployment "hop-c" successfully rolled out
+2026-11-20T15:43:53Z [none] policy
+config=none
+--- client -> hop-a (chain, expect 200)
+HTTP/1.1 200 OK
+hop-a ok
+--- client -> hop-b directly (expect refused when a policy is set)
+HTTP/1.1 200 OK
+2026-11-20T15:44:09Z [none] upgrade-under-load
+1795189449.390712450 load-start
+1795189479.395337511 upgrade-start
+1795189479.401489111 upgrade-mesh-done
+1795189509.405533165 app-rollout-start
+1795189510.440598821 app-rollout-done
+1795189510.442750701 actions-done
+1795189749.519114983 load-end
+requests=60000 failed=0 max_ok_latency_ms=9.9 actions_finished_before_load_end=True
+2026-11-20T15:49:10Z [none] latency
+none rep1 qps100: p50=2.069ms p99=3.792ms actual=100 codes={"200":6000}
+none rep1 qps500: p50=1.675ms p99=3.501ms actual=500 codes={"200":30000}
+none rep1 qps1000: p50=1.588ms p99=3.381ms actual=1000 codes={"200":60000}
+none rep2 qps500: p50=1.683ms p99=3.644ms actual=500 codes={"200":30000}
+none rep2 qps1000: p50=1.585ms p99=3.277ms actual=1000 codes={"200":60000}
+none rep2 qps100: p50=2.06ms p99=3.773ms actual=100 codes={"200":6000}
+none rep3 qps1000: p50=1.598ms p99=3.318ms actual=1000 codes={"200":60000}
+none rep3 qps100: p50=2.072ms p99=3.882ms actual=100 codes={"200":6000}
+none rep3 qps500: p50=1.685ms p99=3.522ms actual=500 codes={"200":30000}
+none rep4 qps100: p50=2.067ms p99=3.907ms actual=100 codes={"200":6000}
+none rep4 qps500: p50=1.682ms p99=3.495ms actual=500 codes={"200":30000}
+none rep4 qps1000: p50=1.635ms p99=3.386ms actual=1000 codes={"200":60000}
+none rep5 qps500: p50=1.695ms p99=3.587ms actual=500 codes={"200":30000}
+none rep5 qps1000: p50=1.605ms p99=3.429ms actual=1000 codes={"200":60000}
+none rep5 qps100: p50=2.098ms p99=3.777ms actual=100 codes={"200":6000}
+none max rep1: qps=8657 codes={"200":259711}
+none max rep2: qps=8868 codes={"200":266066}
+none max rep3: qps=8712 codes={"200":261373}
+2026-11-20T16:06:36Z [none] restart-under-load-1
+1795190796.580554197 load-start
+1795190826.584292271 restart-start
+1795190829.495838355 restart-mesh-done
+1795190829.498239481 actions-done
+1795190956.706878962 load-end
+requests=32000 failed=0 max_ok_latency_ms=7.4 actions_finished_before_load_end=True
+2026-11-20T16:09:17Z [none] restart-under-load-2
+1795190957.324966220 load-start
+1795190987.330095057 restart-start
+1795190990.063731700 restart-mesh-done
+1795190990.067374353 actions-done
+1795191117.452970794 load-end
+requests=32000 failed=0 max_ok_latency_ms=8.3 actions_finished_before_load_end=True
+2026-11-20T16:11:57Z [none] restart-under-load-3
+1795191118.047030875 load-start
+1795191148.050703251 restart-start
+1795191150.849730818 restart-mesh-done
+1795191150.851933121 actions-done
+1795191278.181856028 load-end
+requests=32000 failed=0 max_ok_latency_ms=8.0 actions_finished_before_load_end=True
+2026-11-20T16:14:38Z [none] startup
+none round 0: median 1.56s max 2.31s pods=10 containers=['hop']
+none round 1: median 1.52s max 2.53s pods=10 containers=['hop']
+none round 2: median 1.52s max 1.90s pods=10 containers=['hop']
+none round 3: median 1.57s max 2.55s pods=10 containers=['hop']
+none round 4: median 1.46s max 1.53s pods=10 containers=['hop']
+none round 5: median 1.51s max 2.42s pods=10 containers=['hop']
+2026-11-20T16:16:14Z [none] done
+2026-11-20T16:16:14Z [istio-sidecar] cluster
+Creating cluster "bench" ...
+ • Ensuring node image (kindest/node:v1.36.4) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.36.4) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-bench"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-bench
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-control-plane", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker2", loading...
+2026-11-20T16:16:41Z [istio-sidecar] install
+        |\          
+        | \         
+        |  \        
+        |   \       
+      /||    \      
+     / ||     \     
+    /  ||      \    
+   /   ||       \   
+  /    ||        \  
+ /     ||         \ 
+/______||__________\
+____________________
+  \__       _____/  
+     \_____/        
+
+
+- Processing resources for Istio core.
+✔ Istio core installed ⛵️
+- Processing resources for Istiod.
+- Processing resources for Istiod. Waiting for Deployment/istio-system/istiod
+✔ Istiod installed 🧠
+- Processing resources for Ingress gateways.
+- Processing resources for Ingress gateways. Waiting for Deployment/istio-system/istio-ingressgat...
+✔ Ingress gateways installed 🛬
+- Pruning removed resources
+✔ Installation complete2026-11-20T16:17:09Z [istio-sidecar] app
+namespace/bench labeled
+Waiting for deployment "client" rollout to finish: 0 of 1 updated replicas are available...
+deployment "client" successfully rolled out
+Waiting for deployment "hop-a" rollout to finish: 0 of 1 updated replicas are available...
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+Waiting for deployment "hop-c" rollout to finish: 0 of 1 updated replicas are available...
+deployment "hop-c" successfully rolled out
+2026-11-20T16:17:15Z [istio-sidecar] policy
+authorizationpolicy.security.istio.io/hop-b created
+config=istio-sidecar
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+HTTP/1.1 403 Forbidden
+RBAC: access denied{"ts":1795191451.225565,"level":"warn","r":1,"file":"http_client.go","line":1155,"msg":"Non ok http code","code":403,"status":"HTTP/1.1 403","thread":0,"run":0}
+{"ts":1795191451.225638,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status 403"}
+command terminated with exit code 1
+2026-11-20T16:17:31Z [istio-sidecar] upgrade-under-load
+1795191451.351391165 load-start
+1795191481.356345202 upgrade-start
+1795191497.788810342 upgrade-mesh-done
+1795191527.792691165 app-rollout-start
+1795191534.979063968 app-rollout-done
+1795191534.983632573 actions-done
+1795191751.527552975 load-end
+requests=60000 failed=0 max_ok_latency_ms=61.3 actions_finished_before_load_end=True
+deployment.apps/client restarted
+Waiting for deployment "client" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "client" rollout to finish: 1 old replicas are pending termination...
+deployment "client" successfully rolled out
+2026-11-20T16:22:34Z [istio-sidecar] latency
+istio-sidecar rep1 qps100: p50=12.599ms p99=18.625ms actual=100 codes={"200":6000}
+istio-sidecar rep1 qps500: p50=11.716ms p99=17.829ms actual=500 codes={"200":30000}
+istio-sidecar rep1 qps1000: p50=10.807ms p99=19.445ms actual=1000 codes={"200":60000}
+istio-sidecar rep2 qps500: p50=11.535ms p99=17.606ms actual=500 codes={"200":30000}
+istio-sidecar rep2 qps1000: p50=11.205ms p99=19.877ms actual=1000 codes={"200":60000}
+istio-sidecar rep2 qps100: p50=12.706ms p99=17.943ms actual=100 codes={"200":6000}
+istio-sidecar rep3 qps1000: p50=10.897ms p99=19.56ms actual=1000 codes={"200":60000}
+istio-sidecar rep3 qps100: p50=12.879ms p99=18.645ms actual=100 codes={"200":6000}
+istio-sidecar rep3 qps500: p50=11.686ms p99=17.874ms actual=500 codes={"200":30000}
+istio-sidecar rep4 qps100: p50=12.795ms p99=17.892ms actual=100 codes={"200":6000}
+istio-sidecar rep4 qps500: p50=12.153ms p99=18.524ms actual=500 codes={"200":30000}
+istio-sidecar rep4 qps1000: p50=11.107ms p99=19.442ms actual=1000 codes={"200":60000}
+istio-sidecar rep5 qps500: p50=12.161ms p99=19.142ms actual=500 codes={"200":30000}
+istio-sidecar rep5 qps1000: p50=11.042ms p99=19.734ms actual=1000 codes={"200":60000}
+istio-sidecar rep5 qps100: p50=12.683ms p99=18.543ms actual=100 codes={"200":6000}
+istio-sidecar max rep1: qps=1295 codes={"200":38874}
+istio-sidecar max rep2: qps=1303 codes={"200":39095}
+istio-sidecar max rep3: qps=1298 codes={"200":38954}
+2026-11-20T16:40:01Z [istio-sidecar] restart-under-load-1
+1795192801.420836559 load-start
+1795192831.425043917 restart-start
+1795192838.616816580 restart-mesh-done
+1795192838.619137999 actions-done
+1795192961.563007472 load-end
+requests=32000 failed=0 max_ok_latency_ms=38.6 actions_finished_before_load_end=True
+2026-11-20T16:42:42Z [istio-sidecar] restart-under-load-2
+1795192962.234181207 load-start
+1795192992.238182017 restart-start
+1795192996.771524878 restart-mesh-done
+1795192996.777500340 actions-done
+1795193122.376187958 load-end
+requests=32000 failed=0 max_ok_latency_ms=33.5 actions_finished_before_load_end=True
+2026-11-20T16:45:22Z [istio-sidecar] restart-under-load-3
+1795193123.053073645 load-start
+1795193153.056895572 restart-start
+1795193157.376621559 restart-mesh-done
+1795193157.378799384 actions-done
+1795193283.195412738 load-end
+requests=32000 failed=0 max_ok_latency_ms=84.0 actions_finished_before_load_end=True
+2026-11-20T16:48:03Z [istio-sidecar] startup
+istio-sidecar round 0: median 5.26s max 5.98s pods=10 containers=['hop', 'istio-init', 'istio-proxy']
+istio-sidecar round 1: median 5.35s max 5.92s pods=10 containers=['hop', 'istio-init', 'istio-proxy']
+istio-sidecar round 2: median 5.18s max 5.32s pods=10 containers=['hop', 'istio-init', 'istio-proxy']
+istio-sidecar round 3: median 5.25s max 5.81s pods=10 containers=['hop', 'istio-init', 'istio-proxy']
+istio-sidecar round 4: median 5.26s max 5.94s pods=10 containers=['hop', 'istio-init', 'istio-proxy']
+istio-sidecar round 5: median 5.00s max 5.92s pods=10 containers=['hop', 'istio-init', 'istio-proxy']
+2026-11-20T16:50:03Z [istio-sidecar] done
+2026-11-20T16:50:03Z [istio-ambient] cluster
+Creating cluster "bench" ...
+ • Ensuring node image (kindest/node:v1.36.4) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.36.4) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-bench"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-bench
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-control-plane", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker2", loading...
+2026-11-20T16:50:25Z [istio-ambient] install
+        |\          
+        | \         
+        |  \        
+        |   \       
+      /||    \      
+     / ||     \     
+    /  ||      \    
+   /   ||       \   
+  /    ||        \  
+ /     ||         \ 
+/______||__________\
+____________________
+  \__       _____/  
+     \_____/        
+
+
+- Processing resources for Istio core.
+✔ Istio core installed ⛵️
+- Processing resources for CNI, Istiod.
+- Processing resources for CNI, Istiod. Waiting for DaemonSet/istio-system/istio-cni-node
+- Processing resources for CNI, Istiod. Waiting for DaemonSet/istio-system/istio-cni-node, Deploy...
+✔ Istiod installed 🧠
+- Processing resources for CNI. Waiting for DaemonSet/istio-system/istio-cni-node
+✔ CNI installed 🪢
+- Processing resources for Ztunnel.
+- Processing resources for Ztunnel. Waiting for DaemonSet/istio-system/ztunnel
+✔ Ztunnel installed 🔒
+- Pruning removed resources
+✔ Installation completeThe ambient profile has been installed successfully, enjoy Istio without sidecars!
+2026-11-20T16:51:04Z [istio-ambient] app
+namespace/bench labeled
+Waiting for deployment "client" rollout to finish: 0 of 1 updated replicas are available...
+deployment "client" successfully rolled out
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+deployment "hop-c" successfully rolled out
+2026-11-20T16:51:07Z [istio-ambient] policy
+gateway.gateway.networking.k8s.io/waypoint created
+authorizationpolicy.security.istio.io/hop-b-l7 created
+Waiting for deployment "waypoint" rollout to finish: 0 of 1 updated replicas are available...
+Waiting for deployment "waypoint" rollout to finish: 0 of 1 updated replicas are available...
+deployment "waypoint" successfully rolled out
+service/hop-b labeled
+config=istio-ambient-waypoint
+--- client -> hop-a (chain, expect 200)
+HTTP/1.1 200 OK
+hop-a ok
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795193488.708110,"level":"warn","r":1,"file":"http_client.go","line":1155,"msg":"Non ok http code","code":403,"status":"HTTP/1.1 403","thread":0,"run":0}
+{"ts":1795193488.708185,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status 403"}
+HTTP/1.1 403 Forbidden
+RBAC: access deniedcommand terminated with exit code 1
+2026-11-20T16:51:28Z [istio-ambient] upgrade-under-load
+1795193488.846238353 load-start
+1795193518.849882123 upgrade-start
+1795193579.264601258 upgrade-mesh-done
+1795193579.266962731 actions-done
+1795193789.009016156 load-end
+requests=60000 failed=0 max_ok_latency_ms=68.9 actions_finished_before_load_end=True
+2026-11-20T16:56:30Z [istio-ambient] latency
+istio-ambient-waypoint rep1 qps100: p50=6.652ms p99=10.563ms actual=100 codes={"200":6000}
+istio-ambient-waypoint rep1 qps500: p50=6.334ms p99=10.173ms actual=500 codes={"200":30000}
+istio-ambient-waypoint rep1 qps1000: p50=5.75ms p99=9.848ms actual=1000 codes={"200":60000}
+istio-ambient-waypoint rep2 qps500: p50=6.442ms p99=10.652ms actual=500 codes={"200":30000}
+istio-ambient-waypoint rep2 qps1000: p50=5.789ms p99=9.88ms actual=1000 codes={"200":60000}
+istio-ambient-waypoint rep2 qps100: p50=6.78ms p99=10.714ms actual=100 codes={"200":6000}
+istio-ambient-waypoint rep3 qps1000: p50=5.745ms p99=9.89ms actual=1000 codes={"200":60000}
+istio-ambient-waypoint rep3 qps100: p50=6.728ms p99=10.3ms actual=100 codes={"200":6000}
+istio-ambient-waypoint rep3 qps500: p50=6.381ms p99=10.238ms actual=500 codes={"200":30000}
+istio-ambient-waypoint rep4 qps100: p50=6.739ms p99=11.784ms actual=100 codes={"200":6000}
+istio-ambient-waypoint rep4 qps500: p50=6.381ms p99=10.782ms actual=500 codes={"200":30000}
+istio-ambient-waypoint rep4 qps1000: p50=5.805ms p99=9.977ms actual=1000 codes={"200":60000}
+istio-ambient-waypoint rep5 qps500: p50=6.282ms p99=10.299ms actual=500 codes={"200":30000}
+istio-ambient-waypoint rep5 qps1000: p50=5.767ms p99=10.038ms actual=1000 codes={"200":60000}
+istio-ambient-waypoint rep5 qps100: p50=6.732ms p99=10.436ms actual=100 codes={"200":6000}
+istio-ambient-waypoint max rep1: qps=2559 codes={"200":76793}
+istio-ambient-waypoint max rep2: qps=2542 codes={"200":76283}
+istio-ambient-waypoint max rep3: qps=2534 codes={"200":76037}
+2026-11-20T17:13:56Z [istio-ambient] restart-under-load-1
+1795194836.851306271 load-start
+1795194866.855817023 restart-start
+1795194906.975553297 restart-mesh-done
+1795194906.978192505 actions-done
+1795194996.981831819 load-end
+requests=32000 failed=0 max_ok_latency_ms=25.3 actions_finished_before_load_end=True
+2026-11-20T17:16:37Z [istio-ambient] restart-under-load-2
+1795194997.672663979 load-start
+1795195027.676276915 restart-start
+1795195069.381249794 restart-mesh-done
+1795195069.383895325 actions-done
+1795195157.806818921 load-end
+requests=32000 failed=0 max_ok_latency_ms=39.1 actions_finished_before_load_end=True
+2026-11-20T17:19:18Z [istio-ambient] restart-under-load-3
+1795195158.465876521 load-start
+1795195188.469592274 restart-start
+1795195231.740741139 restart-mesh-done
+1795195231.744148253 actions-done
+1795195318.598863103 load-end
+requests=32000 failed=0 max_ok_latency_ms=29.9 actions_finished_before_load_end=True
+2026-11-20T17:21:59Z [istio-ambient] startup
+istio-ambient-waypoint round 0: median 2.03s max 2.80s pods=10 containers=['hop']
+istio-ambient-waypoint round 1: median 1.90s max 2.84s pods=10 containers=['hop']
+istio-ambient-waypoint round 2: median 1.88s max 1.93s pods=10 containers=['hop']
+istio-ambient-waypoint round 3: median 1.87s max 1.94s pods=10 containers=['hop']
+istio-ambient-waypoint round 4: median 1.88s max 2.89s pods=10 containers=['hop']
+istio-ambient-waypoint round 5: median 2.06s max 2.14s pods=10 containers=['hop']
+2026-11-20T17:23:38Z [istio-ambient] policy-l4
+service/hop-b unlabeled
+authorizationpolicy.security.istio.io "hop-b-l7" deleted from bench namespace
+gateway.gateway.networking.k8s.io "waypoint" deleted from bench namespace
+authorizationpolicy.security.istio.io/hop-b created
+config=istio-ambient-l4
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795195434.194682,"level":"err","r":1,"file":"http_client.go","line":1134,"msg":"Read error","err":"read tcp 10.244.2.4:42548->10.96.27.50:8080: read: connection reset by peer","size":0,"header_len":0,"dest":{"IP":"10.96.27.50","Port":8080,"Zone":""},"url":"http://hop-b:8080/","thread":0,"run":0}
+{"ts":1795195434.194720,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status -1"}
+command terminated with exit code 1
+2026-11-20T17:23:54Z [istio-ambient] latency-l4
+istio-ambient-l4 rep1 qps100: p50=4.212ms p99=6.808ms actual=100 codes={"200":6000}
+istio-ambient-l4 rep1 qps500: p50=3.763ms p99=6.509ms actual=500 codes={"200":30000}
+istio-ambient-l4 rep1 qps1000: p50=3.556ms p99=6.108ms actual=1000 codes={"200":60000}
+istio-ambient-l4 rep2 qps500: p50=3.827ms p99=6.618ms actual=500 codes={"200":30000}
+istio-ambient-l4 rep2 qps1000: p50=3.613ms p99=6.46ms actual=1000 codes={"200":60000}
+istio-ambient-l4 rep2 qps100: p50=4.31ms p99=6.978ms actual=100 codes={"200":6000}
+istio-ambient-l4 rep3 qps1000: p50=3.615ms p99=6.484ms actual=1000 codes={"200":60000}
+istio-ambient-l4 rep3 qps100: p50=4.342ms p99=6.916ms actual=100 codes={"200":6000}
+istio-ambient-l4 rep3 qps500: p50=3.771ms p99=6.438ms actual=500 codes={"200":30000}
+istio-ambient-l4 rep4 qps100: p50=4.343ms p99=7.722ms actual=100 codes={"200":6000}
+istio-ambient-l4 rep4 qps500: p50=3.844ms p99=6.775ms actual=500 codes={"200":30000}
+istio-ambient-l4 rep4 qps1000: p50=3.61ms p99=6.358ms actual=1000 codes={"200":60000}
+istio-ambient-l4 rep5 qps500: p50=3.8ms p99=6.795ms actual=500 codes={"200":30000}
+istio-ambient-l4 rep5 qps1000: p50=3.617ms p99=6.458ms actual=1000 codes={"200":60000}
+istio-ambient-l4 rep5 qps100: p50=4.372ms p99=6.934ms actual=100 codes={"200":6000}
+istio-ambient-l4 max rep1: qps=3862 codes={"200":115873}
+istio-ambient-l4 max rep2: qps=3958 codes={"200":118747}
+istio-ambient-l4 max rep3: qps=3976 codes={"200":119287}
+2026-11-20T17:41:20Z [istio-ambient] done
+2026-11-20T17:41:20Z [linkerd] cluster
+Creating cluster "bench" ...
+ • Ensuring node image (kindest/node:v1.36.4) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.36.4) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-bench"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-bench
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-control-plane", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker2", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker", loading...
+2026-11-20T17:41:42Z [linkerd] install
+Rendering Linkerd CRDs...
+Next, run `linkerd install | kubectl apply -f -` to install the control plane.
+
+2026-11-20T17:42:44Z [linkerd] app
+namespace/bench annotated
+Waiting for deployment "client" rollout to finish: 0 of 1 updated replicas are available...
+deployment "client" successfully rolled out
+Waiting for deployment "hop-a" rollout to finish: 0 of 1 updated replicas are available...
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+deployment "hop-c" successfully rolled out
+2026-11-20T17:42:50Z [linkerd] policy
+server.policy.linkerd.io/hop-b created
+httproute.gateway.networking.k8s.io/hop-b-get created
+httproute.gateway.networking.k8s.io/hop-b-probe created
+meshtlsauthentication.policy.linkerd.io/hop-a created
+authorizationpolicy.policy.linkerd.io/hop-b-get created
+networkauthentication.policy.linkerd.io/probes created
+authorizationpolicy.policy.linkerd.io/hop-b-probe created
+config=linkerd
+--- client -> hop-a (chain, expect 200)
+HTTP/1.1 200 OK
+hop-a ok
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795196586.223904,"level":"warn","r":1,"file":"http_client.go","line":1155,"msg":"Non ok http code","code":403,"status":"HTTP/1.1 403","thread":0,"run":0}
+HTTP/1.1 403 Forbidden
+{"ts":1795196586.224061,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status 403"}
+command terminated with exit code 1
+2026-11-20T17:43:06Z [linkerd] upgrade-under-load
+1795196586.360782651 load-start
+1795196616.365217108 upgrade-start
+1795196638.847043239 upgrade-mesh-done
+1795196668.852172966 app-rollout-start
+1795196674.674139473 app-rollout-done
+1795196674.676343282 actions-done
+1795196886.502913414 load-end
+requests=60000 failed=0 max_ok_latency_ms=38.2 actions_finished_before_load_end=True
+deployment.apps/client restarted
+Waiting for deployment "client" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "client" rollout to finish: 1 old replicas are pending termination...
+deployment "client" successfully rolled out
+2026-11-20T17:48:11Z [linkerd] latency
+linkerd rep1 qps100: p50=8.537ms p99=13.804ms actual=100 codes={"200":6000}
+linkerd rep1 qps500: p50=7.941ms p99=13.1ms actual=500 codes={"200":30000}
+linkerd rep1 qps1000: p50=7.432ms p99=12.619ms actual=1000 codes={"200":60000}
+linkerd rep2 qps500: p50=8.014ms p99=13.607ms actual=500 codes={"200":30000}
+linkerd rep2 qps1000: p50=7.394ms p99=12.869ms actual=1000 codes={"200":60000}
+linkerd rep2 qps100: p50=8.62ms p99=13.558ms actual=100 codes={"200":6000}
+linkerd rep3 qps1000: p50=7.483ms p99=12.464ms actual=1000 codes={"200":60000}
+linkerd rep3 qps100: p50=8.55ms p99=13.852ms actual=100 codes={"200":6000}
+linkerd rep3 qps500: p50=7.962ms p99=12.915ms actual=500 codes={"200":30000}
+linkerd rep4 qps100: p50=8.477ms p99=13.639ms actual=100 codes={"200":6000}
+linkerd rep4 qps500: p50=8.015ms p99=13.78ms actual=500 codes={"200":30000}
+linkerd rep4 qps1000: p50=7.745ms p99=13.374ms actual=1000 codes={"200":60000}
+linkerd rep5 qps500: p50=8.335ms p99=13.886ms actual=500 codes={"200":30000}
+linkerd rep5 qps1000: p50=7.747ms p99=13.163ms actual=1000 codes={"200":60000}
+linkerd rep5 qps100: p50=8.473ms p99=13.909ms actual=100 codes={"200":6000}
+linkerd max rep1: qps=2003 codes={"200":60088}
+linkerd max rep2: qps=2074 codes={"200":62217}
+linkerd max rep3: qps=2084 codes={"200":62543}
+2026-11-20T18:05:37Z [linkerd] restart-under-load-1
+1795197938.110269854 load-start
+1795197968.114735808 restart-start
+1795197981.784783291 restart-mesh-done
+1795197981.788161902 actions-done
+1795198098.268485043 load-end
+requests=32000 failed=0 max_ok_latency_ms=42.1 actions_finished_before_load_end=True
+2026-11-20T18:08:18Z [linkerd] restart-under-load-2
+1795198098.927477939 load-start
+1795198128.935210018 restart-start
+1795198133.945685463 restart-mesh-done
+1795198133.948128053 actions-done
+1795198259.057303130 load-end
+requests=32000 failed=0 max_ok_latency_ms=24.9 actions_finished_before_load_end=True
+2026-11-20T18:10:59Z [linkerd] restart-under-load-3
+1795198259.749930626 load-start
+1795198289.753534733 restart-start
+1795198293.900959705 restart-mesh-done
+1795198293.907652366 actions-done
+1795198419.894739114 load-end
+requests=32000 failed=0 max_ok_latency_ms=24.6 actions_finished_before_load_end=True
+2026-11-20T18:13:40Z [linkerd] startup
+linkerd round 0: median 5.06s max 6.40s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+linkerd round 1: median 4.95s max 5.55s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+linkerd round 2: median 4.96s max 5.98s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+linkerd round 3: median 5.05s max 6.02s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+linkerd round 4: median 5.00s max 6.46s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+linkerd round 5: median 4.86s max 6.11s pods=10 containers=['hop', 'linkerd-init', 'linkerd-proxy']
+2026-11-20T18:15:42Z [linkerd] done
+2026-11-20T18:15:42Z [cilium] cluster
+Creating cluster "bench" ...
+ • Ensuring node image (kindest/node:v1.36.4) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.36.4) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-bench"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-bench
+
+Have a nice day! 👋
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-control-plane", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker2", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker", loading...
+2026-11-20T18:16:08Z [cilium] install
+Waiting for daemon set "cilium" rollout to finish: 0 of 3 updated pods are available...
+Waiting for daemon set "cilium" rollout to finish: 1 of 3 updated pods are available...
+Waiting for daemon set "cilium" rollout to finish: 2 of 3 updated pods are available...
+daemon set "cilium" successfully rolled out
+Waiting for daemon set "cilium-envoy" rollout to finish: 1 of 3 updated pods are available...
+Waiting for daemon set "cilium-envoy" rollout to finish: 2 of 3 updated pods are available...
+daemon set "cilium-envoy" successfully rolled out
+2026-11-20T18:16:42Z [cilium] app
+Waiting for deployment "client" rollout to finish: 0 of 1 updated replicas are available...
+deployment "client" successfully rolled out
+Waiting for deployment "hop-a" rollout to finish: 0 of 1 updated replicas are available...
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+Waiting for deployment "hop-c" rollout to finish: 0 of 1 updated replicas are available...
+deployment "hop-c" successfully rolled out
+2026-11-20T18:16:53Z [cilium] policy
+ciliumnetworkpolicy.cilium.io/hop-b created
+config=cilium-wg-l7
+--- client -> hop-a (chain, expect 200)
+HTTP/1.1 200 OK
+hop-a ok
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795198631.993561,"level":"err","r":1,"file":"http_client.go","line":954,"msg":"Unable to connect","dest":{"IP":"10.96.132.195","Port":8080,"Zone":""},"err":"dial tcp 10.96.132.195:8080: i/o timeout","numfd":6,"thread":0,"run":0}
+{"ts":1795198631.993586,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status -1"}
+command terminated with exit code 1
+--- cilium status on bench-worker (hop-b's node)
+KubeProxyReplacement:    False   
+Routing:                 Network: Tunnel [vxlan]   Host: Legacy
+Proxy Status:            OK, ip 10.244.2.205, 1 redirects active on ports 10000-20000, Envoy: external
+Encryption:              Wireguard       [NodeEncryption: Disabled, cilium_wg0 (Pubkey: GKgG7TERye3+VatjcNsgB6Le+MeonZThS82kznc/cUE=, Port: 51871, Peers: 2)]
+--- cilium_wg0 counters before and after 1,000 chain requests
+    RX:  bytes packets errors dropped  missed   mcast           
+          4592      26      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+          4624      28      0       0       0       0 
+    RX:  bytes packets errors dropped  missed   mcast           
+        795584    3068      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+        781008    3084      0       0       0       0 
+2026-11-20T18:17:13Z [cilium] upgrade-under-load
+1795198633.297107629 load-start
+1795198663.301138117 upgrade-start
+1795198689.677801821 upgrade-mesh-done
+1795198689.684257195 actions-done
+1795198933.456404848 load-end
+requests=60000 failed=18 max_ok_latency_ms=1065.4 actions_finished_before_load_end=True
+2026-11-20T18:22:14Z [cilium] latency
+cilium-wg-l7 rep1 qps100: p50=6.995ms p99=11.815ms actual=100 codes={"200":6000}
+cilium-wg-l7 rep1 qps500: p50=6.337ms p99=10.889ms actual=500 codes={"200":30000}
+cilium-wg-l7 rep1 qps1000: p50=5.995ms p99=11.26ms actual=1000 codes={"200":60000}
+cilium-wg-l7 rep2 qps500: p50=6.366ms p99=10.691ms actual=500 codes={"200":30000}
+cilium-wg-l7 rep2 qps1000: p50=5.819ms p99=10.676ms actual=1000 codes={"200":60000}
+cilium-wg-l7 rep2 qps100: p50=7.042ms p99=12.64ms actual=100 codes={"200":6000}
+cilium-wg-l7 rep3 qps1000: p50=5.824ms p99=10.596ms actual=1000 codes={"200":60000}
+cilium-wg-l7 rep3 qps100: p50=7.003ms p99=11.857ms actual=100 codes={"200":6000}
+cilium-wg-l7 rep3 qps500: p50=6.438ms p99=10.888ms actual=500 codes={"200":30000}
+cilium-wg-l7 rep4 qps100: p50=6.886ms p99=11.568ms actual=100 codes={"200":6000}
+cilium-wg-l7 rep4 qps500: p50=6.28ms p99=10.724ms actual=500 codes={"200":30000}
+cilium-wg-l7 rep4 qps1000: p50=5.809ms p99=10.678ms actual=1000 codes={"200":60000}
+cilium-wg-l7 rep5 qps500: p50=6.355ms p99=10.801ms actual=500 codes={"200":30000}
+cilium-wg-l7 rep5 qps1000: p50=5.92ms p99=11.031ms actual=1000 codes={"200":60000}
+cilium-wg-l7 rep5 qps100: p50=7.091ms p99=11.929ms actual=100 codes={"200":6000}
+cilium-wg-l7 max rep1: qps=1990 codes={"200":59722}
+cilium-wg-l7 max rep2: qps=1994 codes={"200":59842}
+cilium-wg-l7 max rep3: qps=2013 codes={"200":60411}
+2026-11-20T18:39:41Z [cilium] restart-under-load-1
+1795199981.565514858 load-start
+1795200011.569695017 restart-start
+1795200038.200257916 restart-mesh-done
+1795200038.203133630 actions-done
+1795200141.713306143 load-end
+requests=32000 failed=0 max_ok_latency_ms=2160.3 actions_finished_before_load_end=True
+2026-11-20T18:42:22Z [cilium] restart-under-load-2
+1795200142.429861162 load-start
+1795200172.433678903 restart-start
+1795200199.089565162 restart-mesh-done
+1795200199.091862924 actions-done
+1795200302.584022554 load-end
+requests=32000 failed=8 max_ok_latency_ms=2069.1 actions_finished_before_load_end=True
+2026-11-20T18:45:03Z [cilium] restart-under-load-3
+1795200303.271625662 load-start
+1795200333.276085442 restart-start
+1795200360.106867077 restart-mesh-done
+1795200360.111501792 actions-done
+1795200463.425880873 load-end
+requests=32000 failed=1 max_ok_latency_ms=1167.4 actions_finished_before_load_end=True
+2026-11-20T18:47:43Z [cilium] startup
+cilium-wg-l7 round 0: median 2.02s max 2.11s pods=10 containers=['hop']
+cilium-wg-l7 round 1: median 2.03s max 2.09s pods=10 containers=['hop']
+cilium-wg-l7 round 2: median 1.91s max 2.87s pods=10 containers=['hop']
+cilium-wg-l7 round 3: median 2.07s max 2.97s pods=10 containers=['hop']
+cilium-wg-l7 round 4: median 2.01s max 2.18s pods=10 containers=['hop']
+cilium-wg-l7 round 5: median 1.94s max 2.85s pods=10 containers=['hop']
+2026-11-20T18:49:23Z [cilium] policy-l4
+ciliumnetworkpolicy.cilium.io/hop-b configured
+config=cilium-wg-l4
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+{"ts":1795200582.895264,"level":"err","r":1,"file":"http_client.go","line":954,"msg":"Unable to connect","dest":{"IP":"10.96.132.195","Port":8080,"Zone":""},"err":"dial tcp 10.96.132.195:8080: i/o timeout","numfd":6,"thread":0,"run":0}
+{"ts":1795200582.895289,"level":"err","r":1,"file":"commonflags.go","line":161,"msg":"Error status -1"}
+command terminated with exit code 1
+--- cilium status on bench-worker (hop-b's node)
+KubeProxyReplacement:    False   
+Routing:                 Network: Tunnel [vxlan]   Host: Legacy
+Proxy Status:            OK, ip 10.244.2.205, 0 redirects active on ports 10000-20000, Envoy: external
+Encryption:              Wireguard       [NodeEncryption: Disabled, cilium_wg0 (Pubkey: GKgG7TERye3+VatjcNsgB6Le+MeonZThS82kznc/cUE=, Port: 51871, Peers: 2)]
+--- cilium_wg0 counters before and after 1,000 chain requests
+    RX:  bytes packets errors dropped  missed   mcast           
+     653656544 2516714      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+     658287088 2641006      0       0       0       0 
+    RX:  bytes packets errors dropped  missed   mcast           
+     654447472 2519757      0       0       0       0 
+    TX:  bytes packets errors dropped carrier collsns           
+     659014832 2644058      0       0       0       0 
+2026-11-20T18:49:43Z [cilium] latency-l4
+cilium-wg-l4 rep1 qps100: p50=3.662ms p99=6.055ms actual=100 codes={"200":6000}
+cilium-wg-l4 rep1 qps500: p50=3.184ms p99=4.974ms actual=500 codes={"200":30000}
+cilium-wg-l4 rep1 qps1000: p50=2.885ms p99=4.945ms actual=1000 codes={"200":60000}
+cilium-wg-l4 rep2 qps500: p50=3.204ms p99=5.397ms actual=500 codes={"200":30000}
+cilium-wg-l4 rep2 qps1000: p50=2.88ms p99=4.991ms actual=1000 codes={"200":60000}
+cilium-wg-l4 rep2 qps100: p50=3.71ms p99=5.916ms actual=100 codes={"200":6000}
+cilium-wg-l4 rep3 qps1000: p50=2.929ms p99=4.976ms actual=1000 codes={"200":60000}
+cilium-wg-l4 rep3 qps100: p50=3.657ms p99=6.222ms actual=100 codes={"200":6000}
+cilium-wg-l4 rep3 qps500: p50=3.17ms p99=5.072ms actual=500 codes={"200":30000}
+cilium-wg-l4 rep4 qps100: p50=3.632ms p99=6.284ms actual=100 codes={"200":6000}
+cilium-wg-l4 rep4 qps500: p50=3.234ms p99=5.396ms actual=500 codes={"200":30000}
+cilium-wg-l4 rep4 qps1000: p50=2.994ms p99=4.975ms actual=1000 codes={"200":60000}
+cilium-wg-l4 rep5 qps500: p50=3.236ms p99=5.466ms actual=500 codes={"200":30000}
+cilium-wg-l4 rep5 qps1000: p50=2.933ms p99=4.964ms actual=1000 codes={"200":60000}
+cilium-wg-l4 rep5 qps100: p50=3.688ms p99=6.424ms actual=100 codes={"200":6000}
+cilium-wg-l4 max rep1: qps=4266 codes={"200":127979}
+cilium-wg-l4 max rep2: qps=4274 codes={"200":128233}
+cilium-wg-l4 max rep3: qps=4338 codes={"200":130166}
+2026-11-20T19:07:10Z [cilium] no-encryption
+daemonset.apps/cilium restarted
+Waiting for daemon set "cilium" rollout to finish: 0 out of 3 new pods have been updated...
+Waiting for daemon set "cilium" rollout to finish: 1 out of 3 new pods have been updated...
+Waiting for daemon set "cilium" rollout to finish: 1 out of 3 new pods have been updated...
+Waiting for daemon set "cilium" rollout to finish: 2 out of 3 new pods have been updated...
+Waiting for daemon set "cilium" rollout to finish: 2 out of 3 new pods have been updated...
+Waiting for daemon set "cilium" rollout to finish: 2 out of 3 new pods have been updated...
+Waiting for daemon set "cilium" rollout to finish: 2 out of 3 new pods have been updated...
+Waiting for daemon set "cilium" rollout to finish: 2 of 3 updated pods are available...
+daemon set "cilium" successfully rolled out
+config=cilium-base
+--- client -> hop-a (chain, expect 200)
+HTTP/1.1 200 OK
+hop-a ok
+--- client -> hop-b directly (expect refused when a policy is set)
+HTTP/1.1 200 OK
+--- cilium status on bench-worker (hop-b's node)
+KubeProxyReplacement:    False   
+Routing:                 Network: Tunnel [vxlan]   Host: Legacy
+Proxy Status:            OK, ip 10.244.2.205, 0 redirects active on ports 10000-20000, Envoy: external
+Encryption:              Disabled        
+--- cilium_wg0 counters before and after 1,000 chain requests
+2026-11-20T19:07:53Z [cilium] latency-base
+cilium-base rep1 qps100: p50=2.535ms p99=4.761ms actual=100 codes={"200":6000}
+cilium-base rep1 qps500: p50=2.241ms p99=3.917ms actual=500 codes={"200":30000}
+cilium-base rep1 qps1000: p50=1.936ms p99=3.872ms actual=1000 codes={"200":60000}
+cilium-base rep2 qps500: p50=2.243ms p99=3.944ms actual=500 codes={"200":30000}
+cilium-base rep2 qps1000: p50=1.921ms p99=3.839ms actual=1000 codes={"200":60000}
+cilium-base rep2 qps100: p50=2.538ms p99=4.659ms actual=100 codes={"200":6000}
+cilium-base rep3 qps1000: p50=1.925ms p99=3.829ms actual=1000 codes={"200":60000}
+cilium-base rep3 qps100: p50=2.554ms p99=4.662ms actual=100 codes={"200":6000}
+cilium-base rep3 qps500: p50=2.27ms p99=3.957ms actual=500 codes={"200":30000}
+cilium-base rep4 qps100: p50=2.563ms p99=4.84ms actual=100 codes={"200":6000}
+cilium-base rep4 qps500: p50=2.247ms p99=3.924ms actual=500 codes={"200":30000}
+cilium-base rep4 qps1000: p50=1.933ms p99=3.857ms actual=1000 codes={"200":60000}
+cilium-base rep5 qps500: p50=2.282ms p99=3.941ms actual=500 codes={"200":30000}
+cilium-base rep5 qps1000: p50=1.886ms p99=3.804ms actual=1000 codes={"200":60000}
+cilium-base rep5 qps100: p50=2.562ms p99=4.606ms actual=100 codes={"200":6000}
+cilium-base max rep1: qps=7108 codes={"200":213260}
+cilium-base max rep2: qps=7049 codes={"200":211477}
+cilium-base max rep3: qps=7101 codes={"200":213029}
+2026-11-20T19:25:20Z [cilium] done
+Creating cluster "bench" ...
+ • Ensuring node image (kindest/node:v1.36.4) 🖼️  ...
+ ✓ Ensuring node image (kindest/node:v1.36.4) 🖼️
+ • Preparing nodes 📦 📦 📦   ...
+ ✓ Preparing nodes 📦 📦 📦 
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+ • Joining worker nodes 🚜  ...
+ ✓ Joining worker nodes 🚜
+Set kubectl context to "kind-bench"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-bench
+
+Have a nice day! 👋
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-control-plane", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker2", loading...
+Image: "hop:v1" with ID "sha256:c63cbb61a05e92431b8444b7dc009356a32e72d6597ea91d4aba8c8fb71f1a8b" not yet present on node "bench-worker", loading...
+Waiting for deployment "client" rollout to finish: 0 of 1 updated replicas are available...
+deployment "client" successfully rolled out
+deployment "hop-a" successfully rolled out
+deployment "hop-b" successfully rolled out
+deployment "hop-c" successfully rolled out
+config=none
+--- client -> hop-a (chain, expect 200)
+hop-a ok
+HTTP/1.1 200 OK
+--- client -> hop-b directly (expect refused when a policy is set)
+HTTP/1.1 200 OK
+none-repeat rep1 qps100: p50=2.036ms p99=3.67ms actual=100 codes={"200":6000}
+none-repeat rep1 qps500: p50=1.651ms p99=3.517ms actual=500 codes={"200":30000}
+none-repeat rep1 qps1000: p50=1.574ms p99=3.154ms actual=1000 codes={"200":60000}
+none-repeat rep2 qps500: p50=1.672ms p99=3.55ms actual=500 codes={"200":30000}
+none-repeat rep2 qps1000: p50=1.594ms p99=3.154ms actual=1000 codes={"200":60000}
+none-repeat rep2 qps100: p50=2.062ms p99=3.696ms actual=100 codes={"200":6000}
+none-repeat rep3 qps1000: p50=1.589ms p99=3.064ms actual=1000 codes={"200":60000}
+none-repeat rep3 qps100: p50=2.085ms p99=3.724ms actual=100 codes={"200":6000}
+none-repeat rep3 qps500: p50=1.684ms p99=3.607ms actual=500 codes={"200":30000}
+none-repeat rep4 qps100: p50=2.116ms p99=3.825ms actual=100 codes={"200":6000}
+none-repeat rep4 qps500: p50=1.664ms p99=3.315ms actual=500 codes={"200":30000}
+none-repeat rep4 qps1000: p50=1.568ms p99=2.999ms actual=1000 codes={"200":60000}
+none-repeat rep5 qps500: p50=1.662ms p99=3.201ms actual=500 codes={"200":30000}
+none-repeat rep5 qps1000: p50=1.586ms p99=3.16ms actual=1000 codes={"200":60000}
+none-repeat rep5 qps100: p50=2.054ms p99=3.819ms actual=100 codes={"200":6000}
+none-repeat max rep1: qps=8739 codes={"200":262176}
+none-repeat max rep2: qps=8712 codes={"200":261369}
+none-repeat max rep3: qps=8726 codes={"200":261801}
+Deleting cluster "bench" ...
+Deleted nodes: ["bench-control-plane" "bench-worker2" "bench-worker"]
+ALL DONE

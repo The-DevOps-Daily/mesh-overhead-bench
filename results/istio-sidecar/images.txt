@@ -1,0 +1,20 @@
+bench client-58b9b8b99-4n64q fortio/fortio:1.77.0 docker.io/istio/proxyv2:1.31.4 docker.io/istio/proxyv2:1.31.4 
+bench client-6547f48466-d78gk fortio/fortio:1.77.0 docker.io/istio/proxyv2:1.32.0 docker.io/istio/proxyv2:1.32.0 
+bench hop-a-69fc4d4b9f-djnvq hop:v1 docker.io/istio/proxyv2:1.32.0 docker.io/istio/proxyv2:1.32.0 
+bench hop-b-5d54b7fb75-7pxr8 hop:v1 docker.io/istio/proxyv2:1.32.0 docker.io/istio/proxyv2:1.32.0 
+bench hop-c-d5c56696d-8n7wv hop:v1 docker.io/istio/proxyv2:1.32.0 docker.io/istio/proxyv2:1.32.0 
+istio-system istio-ingressgateway-6d4586f477-vq2bm docker.io/istio/proxyv2:1.32.0 
+istio-system istiod-64d454fd67-4dfgk docker.io/istio/pilot:1.32.0 
+kube-system coredns-589f44dc88-4kg95 registry.k8s.io/coredns/coredns:v1.14.2 
+kube-system coredns-589f44dc88-qgkvl registry.k8s.io/coredns/coredns:v1.14.2 
+kube-system etcd-bench-control-plane registry.k8s.io/etcd:3.6.8-0 
+kube-system kindnet-69f9h docker.io/kindest/kindnetd:v20260820-69b56db7 
+kube-system kindnet-vh666 docker.io/kindest/kindnetd:v20260820-69b56db7 
+kube-system kindnet-wxvdm docker.io/kindest/kindnetd:v20260820-69b56db7 
+kube-system kube-apiserver-bench-control-plane registry.k8s.io/kube-apiserver:v1.36.4 
+kube-system kube-controller-manager-bench-control-plane registry.k8s.io/kube-controller-manager:v1.36.4 
+kube-system kube-proxy-29h5n registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-proxy-cpp2m registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-proxy-qlsrk registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-scheduler-bench-control-plane registry.k8s.io/kube-scheduler:v1.36.4 
+local-path-storage local-path-provisioner-56c4685b7c-gxgx9 docker.io/kindest/local-path-provisioner:v20260820-69b56db7 

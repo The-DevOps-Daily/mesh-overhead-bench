@@ -1,0 +1,20 @@
+bench client-58b9b8b99-v6mn7 fortio/fortio:1.77.0 
+bench hop-a-6d8fc4d8b5-jz8kj hop:v1 
+bench hop-b-6b68b5d7f7-6rt2q hop:v1 
+bench hop-c-5f5d7594db-r7k7r hop:v1 
+kube-system coredns-589f44dc88-7gmw9 registry.k8s.io/coredns/coredns:v1.14.2 
+kube-system coredns-589f44dc88-8g8bs registry.k8s.io/coredns/coredns:v1.14.2 
+kube-system etcd-bench-control-plane registry.k8s.io/etcd:3.6.8-0 
+kube-system kindnet-24mz6 docker.io/kindest/kindnetd:v20260820-69b56db7 
+kube-system kindnet-jjcr8 docker.io/kindest/kindnetd:v20260820-69b56db7 
+kube-system kindnet-plw6k docker.io/kindest/kindnetd:v20260820-69b56db7 
+kube-system kube-apiserver-bench-control-plane registry.k8s.io/kube-apiserver:v1.36.4 
+kube-system kube-controller-manager-bench-control-plane registry.k8s.io/kube-controller-manager:v1.36.4 
+kube-system kube-proxy-962wz registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-proxy-gds7x registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-proxy-lm7rv registry.k8s.io/kube-proxy:v1.36.4 
+kube-system kube-scheduler-bench-control-plane registry.k8s.io/kube-scheduler:v1.36.4 
+linkerd linkerd-destination-5977b49fb-c768r cr.l5d.io/linkerd/controller:edge-26.11.2 cr.l5d.io/linkerd/controller:edge-26.11.2 cr.l5d.io/linkerd/controller:edge-26.11.2 
+linkerd linkerd-identity-969f7ff49-pfg5d cr.l5d.io/linkerd/controller:edge-26.11.2 cr.l5d.io/linkerd/proxy:edge-26.11.2 
+linkerd linkerd-proxy-injector-6488fccc5-9r9f4 cr.l5d.io/linkerd/controller:edge-26.11.2 
+local-path-storage local-path-provisioner-56c4685b7c-rwjhk docker.io/kindest/local-path-provisioner:v20260820-69b56db7 

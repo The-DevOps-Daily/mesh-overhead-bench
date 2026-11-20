@@ -1,0 +1,12 @@
+# Same rule plus GET / only. The HTTP rule sends hop-b's traffic through the node's cilium-envoy.
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata: {name: hop-b, namespace: bench}
+spec:
+  endpointSelector: {matchLabels: {app: hop-b}}
+  ingress:
+  - fromEndpoints: [{matchLabels: {app: hop-a}}]
+    toPorts:
+    - ports: [{port: "8080", protocol: TCP}]
+      rules:
+        http: [{method: GET, path: "/"}]

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "b1bd1acd4d09426e3a8f294e71ed8d55faa8dc706d617c8ae33398b82ea7cf6c",
+    "ns": "bench",
+    "pod": "client-58b9b8b99-db8lp",
+    "container": "fortio",
+    "node": "bench-worker"
+  },
+  {
+    "id": "875710ad243a6d092ccbed175013d5258952dd8468643e2add9b314d7d57b296",
+    "ns": "bench",
+    "pod": "hop-a-7f8d5b9fd9-ds6tx",
+    "container": "hop",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "a414da95ad6c55ed24be3b13cc0361a3f98a47666b08f822a57ca4d514eeff78",
+    "ns": "bench",
+    "pod": "hop-b-6cd556875c-c9t8v",
+    "container": "hop",
+    "node": "bench-worker"
+  },
+  {
+    "id": "c787b4eb2a1d751668bb1b92f409902665ea21689c4126718c61e832fae73c55",
+    "ns": "bench",
+    "pod": "hop-c-6f9b86d5d6-f5mtw",
+    "container": "hop",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "ec53849a8f2b28186f78465f74007f9156b12964cdc98f8c5d609217335a964e",
+    "ns": "kube-system",
+    "pod": "cilium-654rb",
+    "container": "cilium-agent",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "321405483527bf4c72ebcf9ef9e171b8cd9082e43974ba6b87f64fe94a1a5113",
+    "ns": "kube-system",
+    "pod": "cilium-654rb",
+    "container": "config",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "075a8dad79c6cd9d3f657477082cb9f65507ed201af5e853f0f77d0ea88e15c3",
+    "ns": "kube-system",
+    "pod": "cilium-654rb",
+    "container": "mount-cgroup",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "08594549345ed11e37a4c4904a3da027ef961da322d0a0a96b2bcf836778ebc4",
+    "ns": "kube-system",
+    "pod": "cilium-654rb",
+    "container": "apply-sysctl-overwrites",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "482677f872ec9252ad7c45f0b0e9e4567d90a8dbeb580ad080785e85e3b309c7",
+    "ns": "kube-system",
+    "pod": "cilium-654rb",
+    "container": "mount-bpf-fs",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "716fb0e3caef955200bf915e43a01969f64b8350b6dda6eead65fcc9cf1114a7",
+    "ns": "kube-system",
+    "pod": "cilium-654rb",
+    "container": "clean-cilium-state",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "0750a8c2276db50ef70e4df42c1fe8432d25d68917c550d0a21c0175eb252534",
+    "ns": "kube-system",
+    "pod": "cilium-654rb",
+    "container": "install-cni-binaries",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "106bfd761bd2ec4aaea4b6b5b20b8f820adeb7f547174f0a8b6ea55da16b0726",
+    "ns": "kube-system",
+    "pod": "cilium-8lmkm",
+    "container": "cilium-agent",
+    "node": "bench-worker"
+  },
+  {
+    "id": "9e383179a15ea175940d23cccb699e024a98ea5394d8edd55faa9a24f5c81b8c",
+    "ns": "kube-system",
+    "pod": "cilium-8lmkm",
+    "container": "config",
+    "node": "bench-worker"
+  },
+  {
+    "id": "0bac73d712624a67625c47199eb1dbc9f9c862acc5167de160ddac2e2dfe4b20",
+    "ns": "kube-system",
+    "pod": "cilium-8lmkm",
+    "container": "mount-cgroup",
+    "node": "bench-worker"
+  },
+  {
+    "id": "02dcdde7a409d5253acc3d431a58730fa3f6c06c8806bea6c62088f84254a186",
+    "ns": "kube-system",
+    "pod": "cilium-8lmkm",
+    "container": "apply-sysctl-overwrites",
+    "node": "bench-worker"
+  },
+  {
+    "id": "2dcd59fbe90e1fb90a1ec051b4e3e142b4a668d5b48f758f26330567876848ae",
+    "ns": "kube-system",
+    "pod": "cilium-8lmkm",
+    "container": "mount-bpf-fs",
+    "node": "bench-worker"
+  },
+  {
+    "id": "9f7df478a477d8fbc81eb1befeb1c3cf2482b33d4f14d6616b1e079711ec94bd",
+    "ns": "kube-system",
+    "pod": "cilium-8lmkm",
+    "container": "clean-cilium-state",
+    "node": "bench-worker"
+  },
+  {
+    "id": "53736fe724877dec9266d920c07282367707da21841462496319662abd3e0236",
+    "ns": "kube-system",
+    "pod": "cilium-8lmkm",
+    "container": "install-cni-binaries",
+    "node": "bench-worker"
+  },
+  {
+    "id": "b68b4908a48cf2f9213b629c45f6098f9b1101ddf062f34134c21960d823605a",
+    "ns": "kube-system",
+    "pod": "cilium-9k2q2",
+    "container": "cilium-agent",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "553ecbf2989220c5a4cba20d5165ea35bdb65601a07564b85c9ec384eef311fa",
+    "ns": "kube-system",
+    "pod": "cilium-9k2q2",
+    "container": "config",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "9779a766474456919305f8d632ee39d03d82a0e768074d2987a5d708d9df17c5",
+    "ns": "kube-system",
+    "pod": "cilium-9k2q2",
+    "container": "mount-cgroup",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "708ef96e9ec061bfb292929566649f510e22dd3a2242921ad9cd954588b449af",
+    "ns": "kube-system",
+    "pod": "cilium-9k2q2",
+    "container": "apply-sysctl-overwrites",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "150adb3c81792c03c7ea3fad7dd5d7d4b40fd19852bb069633b887742215719e",
+    "ns": "kube-system",
+    "pod": "cilium-9k2q2",
+    "container": "mount-bpf-fs",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "8710a5e665f7d6e051c94b08f455b381acefa1d7faae2f07454c02040647f3f5",
+    "ns": "kube-system",
+    "pod": "cilium-9k2q2",
+    "container": "clean-cilium-state",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "77cca9cd9a709fb5205bd26cfa689db30a91c4386995107aa5511e582627745f",
+    "ns": "kube-system",
+    "pod": "cilium-9k2q2",
+    "container": "install-cni-binaries",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "c313181c0c518c081f4c33f9b44db1f1a6425fecfafa64f1699a7e122b7f558d",
+    "ns": "kube-system",
+    "pod": "cilium-envoy-8bpsd",
+    "container": "cilium-envoy",
+    "node": "bench-worker"
+  },
+  {
+    "id": "c65fe18c3b719fa29160618d8a5ff54680dbf7b89e1b49f9a928d4788ce0f3a1",
+    "ns": "kube-system",
+    "pod": "cilium-envoy-r4kkc",
+    "container": "cilium-envoy",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "36d3d085bca383dc8b6bc957cb8bd34d0faf8ee679aeade965c117d84be9722c",
+    "ns": "kube-system",
+    "pod": "cilium-envoy-tw9ps",
+    "container": "cilium-envoy",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "b548adce095b50ec0bbf9f963f43da0b6b08297dc20106352ca65f40248d38be",
+    "ns": "kube-system",
+    "pod": "cilium-operator-6c4c574b46-hq9x5",
+    "container": "cilium-operator",
+    "node": "bench-worker"
+  },
+  {
+    "id": "e1543f7bb965a2aa1bf0794255b3a9723f638b0192bc0a51efeb198584567543",
+    "ns": "kube-system",
+    "pod": "cilium-operator-6c4c574b46-n8ljf",
+    "container": "cilium-operator",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "21d6b23ff2c9588b7b51cd25138ee975cabafb0ca4f43a18067a0c546d24fe53",
+    "ns": "kube-system",
+    "pod": "coredns-589f44dc88-ql8ld",
+    "container": "coredns",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "6e08e661eaa3020af2f66a059b57c8d09f42cfd386e2826e65556b5d0a5fdfc6",
+    "ns": "kube-system",
+    "pod": "coredns-589f44dc88-rkpvk",
+    "container": "coredns",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "160a54f75493d2dfd3f9284f6d7b12c2869e5e3ab57f8d234c818ae79820817e",
+    "ns": "kube-system",
+    "pod": "etcd-bench-control-plane",
+    "container": "etcd",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "10e90a7b2ff795cb6ceffbd993a0d0512685528235954c78575160212597143c",
+    "ns": "kube-system",
+    "pod": "kube-apiserver-bench-control-plane",
+    "container": "kube-apiserver",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "f5d11bb27b4d3b7cf8b7287bc4b7659514099c2ab385f7ad6709f6cb7bae55be",
+    "ns": "kube-system",
+    "pod": "kube-controller-manager-bench-control-plane",
+    "container": "kube-controller-manager",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "fc7beaedaf4b851a278a04cbbc7a64be90773d07f26c3a98b433ac82de32a5a1",
+    "ns": "kube-system",
+    "pod": "kube-proxy-qjwcg",
+    "container": "kube-proxy",
+    "node": "bench-worker"
+  },
+  {
+    "id": "fa291c51d6a2851d0f17aaa82d1d51ab16ccd4d82ec865b90730731d90b68684",
+    "ns": "kube-system",
+    "pod": "kube-proxy-sss5b",
+    "container": "kube-proxy",
+    "node": "bench-worker2"
+  },
+  {
+    "id": "a5e61f6f28bebbb3409b015458aab86ef2f0b2d651e76899ec815204f8e5fb89",
+    "ns": "kube-system",
+    "pod": "kube-proxy-zc7rl",
+    "container": "kube-proxy",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "2e1e5c9d3800a7fdc0ce1370a73ce6e29df000298a661993b0475b6e7d4c678a",
+    "ns": "kube-system",
+    "pod": "kube-scheduler-bench-control-plane",
+    "container": "kube-scheduler",
+    "node": "bench-control-plane"
+  },
+  {
+    "id": "2be3654c58a9dac12cfc7607bf330e05056e5e6455b76ea03d7e9f8cbe65ccda",
+    "ns": "local-path-storage",
+    "pod": "local-path-provisioner-56c4685b7c-mmd62",
+    "container": "local-path-provisioner",
+    "node": "bench-control-plane"
+  }
+]

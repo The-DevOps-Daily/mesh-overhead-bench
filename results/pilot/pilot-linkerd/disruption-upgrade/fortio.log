@@ -1,0 +1,35 @@
+Fortio 1.77.0 running at 200 queries per second, 4 procs, for 5m0s: http://hop-a:8080/
+{"ts":1795187299.064855,"level":"err","r":51,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.3.5:38944->10.96.66.215:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.66.215","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":1,"run":0}
+{"ts":1795187299.064943,"level":"err","r":55,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.3.5:38972->10.96.66.215:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.66.215","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":5,"run":0}
+{"ts":1795187299.065030,"level":"err","r":52,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.3.5:39002->10.96.66.215:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.66.215","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":2,"run":0}
+{"ts":1795187299.065072,"level":"err","r":56,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.3.5:38950->10.96.66.215:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.66.215","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":6,"run":0}
+{"ts":1795187299.065115,"level":"err","r":57,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.3.5:39006->10.96.66.215:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.66.215","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":7,"run":0}
+{"ts":1795187299.065152,"level":"err","r":54,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.3.5:38980->10.96.66.215:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.66.215","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":4,"run":0}
+{"ts":1795187299.065188,"level":"err","r":53,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.3.5:38960->10.96.66.215:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.66.215","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":3,"run":0}
+{"ts":1795187299.065236,"level":"err","r":50,"file":"http_client.go","line":1134,"msg":"Timeout error (incomplete/invalid response)","err":"read tcp 10.244.3.5:38996->10.96.66.215:8080: i/o timeout","size":0,"header_len":0,"dest":{"IP":"10.96.66.215","Port":8080,"Zone":""},"url":"http://hop-a:8080/","thread":0,"run":0}
+Aggregated Function Time : count 60000 avg 0.006051372 +/- 0.03467 min 0.00035453 max 3.004085587 sum 363.082321
+# target 50% 0.00549401
+# target 75% 0.00626818
+# target 90% 0.00723006
+# target 99% 0.012709
+# target 99.9% 0.02875
+Error cases : count 3600 avg 0.0087753876 +/- 0.1413 min 0.00035453 max 3.004085587 sum 31.5913953
+# Socket and IP used for each connection:
+[0] 451 socket used, resolved to 10.96.66.215:8080, connection timing : count 451 avg 0.00017860938 +/- 0.0001457 min 3.6504e-05 max 0.001202373 sum 0.080552831
+[1] 451 socket used, resolved to 10.96.66.215:8080, connection timing : count 451 avg 0.00019194455 +/- 0.0001592 min 4.342e-05 max 0.001323539 sum 0.086566992
+[2] 451 socket used, resolved to 10.96.66.215:8080, connection timing : count 451 avg 0.00018506465 +/- 0.0001506 min 3.8594e-05 max 0.001187865 sum 0.083464158
+[3] 451 socket used, resolved to 10.96.66.215:8080, connection timing : count 451 avg 0.00018726292 +/- 0.0001411 min 3.9273e-05 max 0.000906179 sum 0.084455575
+[4] 451 socket used, resolved to 10.96.66.215:8080, connection timing : count 451 avg 0.00018196933 +/- 0.0001631 min 3.8214e-05 max 0.001986908 sum 0.082068168
+[5] 451 socket used, resolved to 10.96.66.215:8080, connection timing : count 451 avg 0.00019225649 +/- 0.0002032 min 4.3757e-05 max 0.003087791 sum 0.086707676
+[6] 451 socket used, resolved to 10.96.66.215:8080, connection timing : count 451 avg 0.00018171634 +/- 0.0001598 min 3.6798e-05 max 0.001082248 sum 0.081954069
+[7] 451 socket used, resolved to 10.96.66.215:8080, connection timing : count 451 avg 0.00018060403 +/- 0.0001465 min 4.7048e-05 max 0.001207448 sum 0.081452419
+Sockets used: 3608 (for perfect keepalive, would be 8)
+Uniform: false, Jitter: false, Catchup allowed: true
+IP addresses distribution:
+10.96.66.215:8080: 3608
+Code  -1 : 8 (0.0 %)
+Code 200 : 56400 (94.0 %)
+Code 502 : 8 (0.0 %)
+Code 503 : 3584 (6.0 %)
+All done 60000 calls (plus 8 warmup) 6.051 ms avg, 200.0 qps
+Successfully wrote 8250 bytes of Json data to stdout
